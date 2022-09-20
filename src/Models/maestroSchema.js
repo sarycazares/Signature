@@ -17,7 +17,7 @@ cedula:{
 },
 
 materia:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "materia",
     required:true,
 }
@@ -26,5 +26,5 @@ materia:[{
 
 })
 
-const Maestro = mongoose.model("maestro", materiaSchema);
+const Maestro = mongoose.model("maestro", maestroSchema);
 module.exports = Maestro;

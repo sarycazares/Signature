@@ -1,6 +1,6 @@
-const Universidad = require(".../models/universidadSchema");
+const Universidad = require("../models/universidadSchema");
 
-extend.universidad_create = async(req, res) =>{
+exports.universidad_create = async(req, res) =>{
 const{body:universidad} = req;
 
 const universidadDB = new Universidad(universidad);

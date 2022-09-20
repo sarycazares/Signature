@@ -1,11 +1,11 @@
-const Facultad = require(".../models/facultadSchema");
-const Carrera = require(".../models/carreraSchema");
+const Facultad = require("../models/facultadSchema");
+//const Carrera = require("../models/carreraSchema");
 
 exports.facultad_create = async(req, res) => {
-    const{body: usuario} = req;
+    const{body: facultad} = req;
 
-    const usuarioDB = new Usuario(usuario);
-    const err = await usuarioDB.validate();
+    const facultadDB = new Usuario(facultad);
+    const err = await facultadDB.validate();
 
     if(err.errors) {
         console.log(err);
@@ -15,7 +15,7 @@ exports.facultad_create = async(req, res) => {
         //guardar
       }
     
-      await usuarioDB.save().catch((err) => console.log("Algo ha fallado", err));
+      await facultadDB.save().catch((err) => console.log("Algo ha fallado", err));
 
       const universidadDB = Universidad.findOne({ _id: UniversidadDB.universidad });
       const universidadSaved = Universidad.findOneAndUpdate(

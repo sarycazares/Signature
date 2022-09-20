@@ -8,12 +8,12 @@ consejo:{
 },
 
 alumno:{
-    type: Objectid,
+    type: mongoose.Types.ObjectId,
     required: true,
 },
 
 materia:{
-    type: Objectid,
+    type: mongoose.Types.ObjectId,
     required: true,
 },
 
@@ -24,5 +24,5 @@ fecha:{
 
 })
 
-const Consejo = mongoose.model("consejo", materiaSchema);
+const Consejo = mongoose.model("consejo", consejoSchema);
 module.exports = Consejo;

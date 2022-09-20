@@ -8,14 +8,14 @@ comentario:{
 },
 
 alumno:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "usuario",
     required: true,
 }
 ],
 
 resena:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "resena",
     required: true,
 }
@@ -33,5 +33,5 @@ fecha:{
 
 })
 
-const Comres = mongoose.model("comres", materiaSchema);
+const Comres = mongoose.model("comres", comresSchema);
 module.exports = Comres;

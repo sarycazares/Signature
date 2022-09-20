@@ -1,5 +1,5 @@
-const Universidad = require(".../models/universidadSchema");
-const Facultad = require(".../models/facultadSchema");
+const Universidad = require("../models/universidadSchema");
+const Facultad = require("../models/facultadSchema");
 
 exports.carrera_create = async(req, res) => {
     const{body: carrera} = req;

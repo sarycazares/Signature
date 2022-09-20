@@ -14,7 +14,7 @@ descripcion:{
 },
 
 carrera:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "carrera",
 }
 ],

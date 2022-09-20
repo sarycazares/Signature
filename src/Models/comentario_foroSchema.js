@@ -8,7 +8,7 @@ comentario:{
 },
 
 alumno:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "resena",
     required: true,
 }
@@ -19,11 +19,11 @@ fecha:{
 },
 
 foro:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "foro",
 }
 ],
 })
 
-const Comforo = mongoose.model("comforo", materiaSchema);
+const Comforo = mongoose.model("comforo", comforoSchema);
 module.exports = Comforo;

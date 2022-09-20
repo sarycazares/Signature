@@ -1,6 +1,7 @@
 const mongoose = require("mongoose"); //se crea una instancia para uso de mongoose
-const usuarioSchema = mongoose.Schema({
 
+const UsuarioSchema = new mongoose.Schema({
+   
 matricula:{
     type: String,
     minlength: 6,
@@ -14,13 +15,13 @@ usuario:{
 },
 
 facultad:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "facultad",
 }
 ],
 
 carrera:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "carrera",
 }
 ],
@@ -34,9 +35,10 @@ semestre:{
 contrasena: {
     type: String,
     required: true,
+    
 },
 
-})
-
-const Usuario = mongoose.model("usuario", usuarioSchema);
+});
+console.log("Entra2");
+const Usuario = mongoose.model("usuario", UsuarioSchema);
 module.exports = Usuario;

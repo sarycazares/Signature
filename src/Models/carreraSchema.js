@@ -11,5 +11,5 @@ facultad:{
 
 })
 
-const Carrera = mongoose.model("carrera", materiaSchema);
+const Carrera = mongoose.model("carrera", carreraSchema);
 module.exports = Carrera;

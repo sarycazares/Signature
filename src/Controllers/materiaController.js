@@ -1,5 +1,5 @@
-const Materia = require(".../models/materiaSchema");
-const Carrera = require(".../models/carreraSchema");
+const Materia = require("../models/materiaSchema");
+//const Carrera = require("../models/carreraSchema");
 
 exports.materia_create = async(req, res) => {
     const{body: materia} = req;
@@ -17,15 +17,15 @@ exports.materia_create = async(req, res) => {
     
       await materiaDB.save().catch((err) => console.log("Algo ha fallado", err));
 
-      const carreraDB = Carrera.findOne({ _id: carreraDB.carrera });
+     /* const carreraDB = Carrera.findOne({ _id: carreraDB.carrera });
       const carreraSaved = Carrera.findOneAndUpdate(
         { _id: carreraDB.carrera },
         { carreras: [...carreraDB.carrera, carreraDB._id] }
-      );
+      );*/
     
       res.send({
         message: "Materia agregada con exito",
-        data: carreraDB,
+       // data: carreraDB,
       });
 
 };

@@ -1,7 +1,8 @@
-const Usuario = require(".../models/usuarioSchema");
-const Carrera = require(".../models/carreraSchema");
+const Usuario = require('../Models/usuarioSchema');
+const Carrera = require('../Models/carreraSchema');
 
 exports.usuario_create = async(req, res) => {
+  console.log("Entra");
     const{body: usuario} = req;
 
     const usuarioDB = new Usuario(usuario);

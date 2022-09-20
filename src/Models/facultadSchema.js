@@ -16,7 +16,7 @@ siglas:{
 },
 
 universidad:[{
-    type: mongoose.Schema.Types.Objectid,
+    type: mongoose.Types.ObjectId,
     ref: "universidad",
     required:true,
 }
@@ -31,5 +31,5 @@ ciudad:{
 
 })
 
-const Facultad = mongoose.model("facultad", materiaSchema);
+const Facultad = mongoose.model("facultad", facultadSchema);
 module.exports = Facultad;

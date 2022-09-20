@@ -2,12 +2,12 @@ const mongoose = require("mongoose"); //se crea una instancia para uso de mongoo
 const resenaSchema = mongoose.Schema({
 
 materia:{
-    type: Objectid,
+    type: mongoose.Types.ObjectId,
     required:true,
 },
 
 maestro:{
-    type: Objectid,
+    type: mongoose.Types.ObjectId,
     required:true,
 },
 
@@ -23,5 +23,5 @@ fecha:{
 
 })
 
-const Resena = mongoose.model("resena", comentarioSchema);
+const Resena = mongoose.model("resena", resenaSchema);
 module.exports = Resena;

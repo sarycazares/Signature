@@ -2,7 +2,7 @@ const mongoose = require("mongoose"); //se crea una instancia para uso de mongoo
 const foroSchema = mongoose.Schema({
 
 alumno:{
-    type: Objectid,
+    type: mongoose.Types.ObjectId,
     required: true,
 },
 
@@ -20,5 +20,5 @@ fecha:{
 
 })
 
-const Foro = mongoose.model("foro", materiaSchema);
+const Foro = mongoose.model("foro", foroSchema);
 module.exports = Foro;
