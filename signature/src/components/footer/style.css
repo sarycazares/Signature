@@ -1,0 +1,19 @@
+
+ /* //////////////////////////////////////////////////////    FOOTER */
+
+Footer{
+    
+    margin: auto;
+    overflow: hidden;
+    background: var(--white-AllOfMe);
+
+}
+
+.contenedor-footer > h3{
+    color:var(--black-SmoothCriminal);
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+    text-align: center;
+}

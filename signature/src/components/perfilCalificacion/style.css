@@ -1,0 +1,19 @@
+.titulo {
+  color: var(--white-AllOfMe);
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.categoriaB {
+  color: var(--white-AllOfMe);
+  font-size: 25px;
+  font-weight: 300;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.BotonesCalificacion{
+    padding: 30px 50px 0 0;
+    text-align: center;
+}

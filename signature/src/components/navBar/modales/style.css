@@ -1,0 +1,12 @@
+
+
+.modal_titulo{
+    text-align: center;
+    font-weight: 700;
+    color: var(--cian-TeenageDream);
+}
+
+.modal_mensaje{
+    text-align: center;
+}
+

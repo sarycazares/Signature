@@ -1,0 +1,209 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:boader-box;
+    }
+
+  body{
+    font-family: 'Open Sans', sans-serif;    
+
+}   
+  
+
+.NavBar {
+    width: 100%;
+    height: 88px;
+    background: var(--cian-TeenageDream);
+    position: fixed;
+    z-index: 99;
+}
+
+.nav-menu{
+    padding: 30px 50px 0 0;
+    text-align: center;
+           
+}
+
+.usuariobienvenida{
+    text-align: left;
+    position:absolute;
+    right: 10%;
+    width: 52px;
+    height: 50px;
+    top: 10px;      
+}
+
+.bienvenida_usuario{
+    color:var(--white-AllOfMe);
+    font-size: 20px;
+    font-weight: 300;
+    margin-right: 10px;
+    top: 20%;
+    position:absolute;
+    left: 100%;
+}
+
+.nombre_usuario{
+    color:var(--white-AllOfMe);
+    position:absolute;
+    font-size: 20px;
+    font-weight: 300;
+    margin-right: 10px;
+    top: 60%;
+    position:absolute;
+    width: 10%;
+    height: 10%;
+    left: 100%;
+
+}
+
+.imagen-perfilusuario{
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    text-align: left;
+    border-radius: 50px;
+    top: 10px;
+}
+
+.imagen-perfilusuario:hover {
+    background-color: var(--pink-CaliforniaGirls); 
+    box-shadow: 0px 8px 30px var(--pink-CaliforniaGirls);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.nav-menu > a{
+    color:var(--white-AllOfMe);
+    font-size: 25px;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.nav-menu > a:hover {
+    background-color: var(--pink-CaliforniaGirls); 
+    box-shadow: 0px 8px 15px var(--violet-ColdHeart);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.nav-menu > abbr:hover {
+    background-color: var(--pink-CaliforniaGirls); 
+    box-shadow: 0px 8px 30px var(--violet-ColdHeart);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.nav-menu > b{
+    color:var(--white-AllOfMe);
+    font-size: 25px;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+#dropdownMenuButtonSeccion{
+    background-color: var(--transparent);
+    background: var(--transparent);
+    border: var(--transparent);
+}
+
+#dropdownMenuButtonSeccion:hover {
+    background-color: var(--violet-BackInBlack); 
+    background-size: 100% 100%;
+    box-shadow: 0px 30px 30px var(--violet-ColdHeart);
+    border-radius: 3px;
+    cursor: pointer;
+    border:var(--transparent);
+}
+
+.imagen-logo{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 10px;
+    left: 2%;
+    border-radius: 10px;
+        
+}
+
+.imagen-logo img:hover {
+    background-color: var(--pink-CaliforniaGirls); 
+    box-shadow: 0px 8px 30px var(--pink-CaliforniaGirls);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.barraNavBar{
+    background: linear-gradient(to right, var(--pink-CaliforniaGirls), var(--cian-TeenageDream));
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    top: 78px;
+}
+
+#Busqueda{
+    width: 150px;
+}
+
+
+
+     /* ////////////////////////    REDUCCION PAGINA */
+
+     @media only screen and (max-width: 1000px){
+
+        /* ////////////////////////   HEADER */
+       .bienvenida_usuario{
+           width: 0.1px;       
+           height: 0.1px;        
+           opacity: 0;       
+           overflow: hidden;       
+           position: absolute;       
+           z-index: -1;
+       }
+
+       .nombre_usuario{
+        width: 0.1px;       
+        height: 0.1px;        
+        opacity: 0;       
+        overflow: hidden;       
+        position: absolute;       
+        z-index: -1;
+
+    }
+
+
+    }
+
+    @media only screen and (max-width: 300px){
+
+        /* ////////////////////////   HEADER */
+
+       .categoria{
+        width: 0.1px;       
+           height: 0.1px;        
+           opacity: 0;       
+           overflow: hidden;       
+           position: absolute;       
+           z-index: -1;
+       }
+
+       .categoriaB{
+        width: 0.1px;       
+           height: 0.1px;        
+           opacity: 0;       
+           overflow: hidden;       
+           position: absolute;       
+           z-index: -1;
+       }
+
+    }
+
+

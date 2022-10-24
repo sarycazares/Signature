@@ -1,0 +1,144 @@
+
+
+ /* ////////////////////////    CONTENEDOR */
+
+
+ .contenedor{
+    padding:80px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    }
+    
+    .titulo{
+    color: #49408C;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+    }
+    
+    /* ////////////////////////    PERFIL */
+    
+    .contenedor-PreguntasScrollPerfil{
+    background: #a9a1e0;
+    padding: 50px 50px;
+    box-shadow: 0 0 6px 0 #a9a1e0;
+    border-radius: 8px;
+    width: 100%;
+    }
+    
+    .grupo-preguntaPerfil{
+    padding: 50px 0px;
+    box-shadow: 0 0 10px 0 #a9a1e0;
+    border-radius: 8px;
+    
+    }
+    
+    .pregunta-fondoPerfil{
+    background: #6F65B8;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px 0 #6F65B8;
+    border-radius: 8px;
+    }
+    
+    #imagen-perfilpreguntaPerfil{
+    border-radius: 8px;
+    position: absolute;
+    text-align: center;
+    width: 5%;
+    height: 10%;
+    display: block;
+    text-align: left;
+    }
+    
+    .contenedor-PreguntasScrollPerfil{
+        background: #a9a1e0;
+        padding: 50px 50px;
+        box-shadow: 0 0 6px 0 #a9a1e0;
+        border-radius: 8px;
+    
+    }
+    
+    #MiPerfilTitulo{
+        background: linear-gradient(to right, var(--pink-CaliforniaGirls), var(--cian-TeenageDream));
+        width: 12em;
+        border-radius: 5px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pregunta-fondoPerfil>h3{
+    color: #EBEBEB;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    }
+    
+    .pregunta-fondoPerfil>h4{
+    color: #EBEBEB;
+    font-weight: 600;
+    font-size: 35px;
+    text-align: center;
+    width: 100%;
+    }
+    
+    
+    .pregunta-fondoPerfil>a{
+    border: none;
+    display: block;
+    width: 50%;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+    color: #EBEBEB;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    background: #49408C;
+    border-radius: 8px;
+    top: 260px;
+    margin-bottom: 10px;
+    
+    }
+    
+    
+    
+    #imagen-descripcionPerfil{
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    
+    }
+    
+    
+    
+    .contenedorPerfil>p{
+    color: #141414;
+    font-weight: 600;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    }
+    
+    
+    /* //////////////////////////////////////////////////////    REDUCCION */
+    
+    @media screen and (max-width: 700px){
+        
+    }
+    
+    @media screen and (max-width: 500px){
+       
+        #imagen-descripcionPerfil{
+            width: 200px;
+            height: 200px;
+            }
+    
+      }

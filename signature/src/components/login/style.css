@@ -1,0 +1,109 @@
+/* //////////////////////////////////////////////////////    HEADER */
+
+.Header {
+  width: 100%;
+  height: 600px;
+  background: var(--white-SomeoneLikeYou);
+  background: -webkit-linear-gradient(
+      to right,
+      var(--white-SomeoneLikeYou),
+      var(--white-SomeoneLikeYou)
+    ),
+    url(../../recursos/images/backgrounds/pexels-lumn-167682.jpg);
+  background: linear-gradient(
+      to right,
+      var(--white-SomeoneLikeYou),
+      var(--white-SomeoneLikeYou)
+    ),
+    url(../../recursos/images/backgrounds/pexels-lumn-167682.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.NavBarLogin {
+  text-align: right;
+  padding: 30px 50px 0 0;
+}
+
+.NavBarLogin  > a {
+  color: var(--white-AllOfMe);
+  font-size: var(--navText);
+  font-weight: 300;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.NavBarLogin  > b {
+  color: var(--white-AllOfMe);
+  font-size: var(--navText);
+  font-weight: 300;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+header .textos-header {
+  display: flex;
+  height: 350px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+    
+}
+
+.textos-header h2 {
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--white-AllOfMe);
+  
+  
+}
+
+.textos-header h3 {
+  font-size: 25px;
+  font-weight: 300;
+  color: var(--white-AllOfMe);
+}
+
+.buttonHeader {
+  background: var(--cian-TeenageDream);
+  border: none;
+  margin: 5px 5px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+.buttonHeader:hover {
+  background: var(--pink-Bubblepop);
+}
+
+/* ////////////////////////    REDUCCION PAGINA */
+
+@media only screen and (max-width: 298px) {
+  .textos-header h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--white-AllOfMe);
+  }
+
+  .textos-header h3 {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--white-AllOfMe);
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  .textos-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white-AllOfMe);
+  }
+
+  .textos-header h3 {
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--white-AllOfMe);
+  }
+}
