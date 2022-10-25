@@ -176,18 +176,6 @@
     z-index: -1;
   }
 
-  .grupo>img{
-text-align: center;
-width: 265px;
-height: 265px;
-display: block;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-}
-
-
-
 .barra{
 position: relative;
 display: block;
@@ -207,6 +195,12 @@ left: 0;
 
 .grupo>input:focus~.barra::before{
 width: 100%;
+}
+
+.alertForm{
+    background: var(--red-Velvet);
+    padding: 2px;
+    border-radius: 30%;
 }
 
 /* ///////////////////////////////////// Pagina Registro*/

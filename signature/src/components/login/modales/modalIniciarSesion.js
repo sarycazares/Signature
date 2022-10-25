@@ -40,12 +40,12 @@ export default function ModalIniciarSesion() {
                 <h1>Iniciar Sesión</h1>
                 <br/>
                 <div class="grupo">
-                    <input type="text" name="L_User" id="usuarioIniciarSesion" required/><span class="barra"></span>
+                    <input value="sarycazares@live.com.mx"type="text" name="L_User" id="usuarioIniciarSesion" required/><span class="barra"></span>
                     <label class="datos-form" for="">Usuario</label>
                 </div>
                 <br/>
                 <div class="grupo">
-                    <input type="password" name="L_Password" id="contraseñaIniciarSesion" required/><span class="barra"></span>
+                    <input value="pan"type="password" name="L_Password" id="contraseñaIniciarSesion" required/><span class="barra"></span>
                     <label class="datos-form" for="">Contraseña</label>
                 </div>    
                 <br/>

@@ -25,14 +25,14 @@ export default function ModalRegistro() {
                 <h1>Agregar Calificación</h1>
                 <br/>
                 <div class="grupo">
-                    <input type="number" name="agregarCalificacion" id="agregarCalificacion" title="Calificación" required/><span class="barra"></span>
+                    <input value="100" type="number" name="agregarCalificacion" id="agregarCalificacion" title="Calificación" required/><span class="barra"></span>
                     <label class="datos-form" for="">Calificación</label>
                 </div>
                 <br/>
                 <div class="grupo">
                     <h4>Descripción Breve</h4>
                     <br/>
-                    <textarea class="detalle-textarea" name="descripcion" rows="4" cols="40" placeholder="Escriba algo"></textarea>
+                    <textarea value="super buena persona" class="detalle-textarea" name="descripcion" rows="4" cols="40" placeholder="Escriba algo"></textarea>
                 </div>
                 <br/>
                 <div class="grupo">
