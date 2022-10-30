@@ -3,13 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import '../../../css/formularios.css';
+import ModalsEvents from '../../../hooks/ModalsEvents';
 
 
 export default function ModalRegistro() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
+  const {
+    show,
+    handleClose,
+    handleShow
+  } = ModalsEvents();
 
   return (
     <>

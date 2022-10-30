@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Overlay from "react-bootstrap/Overlay";
 import Popover from "react-bootstrap/Popover";
 
-import RegEx from "./script_RegEx.js";
+import RegEx from "./RegEx.js";
 import "../css/formularios.css";
 
 export default function PopoverEmail() {

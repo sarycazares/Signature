@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {useNavigate } from "react-router-dom";
+
 
 import '../../../css/formularios.css';
 import '../../navBar/modales/style.css';
+import ModalsEvents from '../../../hooks/ModalsEvents';
+import Redirects from '../../../hooks/Redirects';
 
 
 export default function ModalIniciarSesion() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-  const navigate = useNavigate();
+  const {
+    show,
+    handleClose,
+    handleShow
+  } = ModalsEvents();
 
-  const irLogin = (event) => {
-    event.preventDefault();
 
-    console.log("clic");
-    navigate('/');
-        
-
-  };
+  const {
+    irLogin
+  } = Redirects();
+  
+  
 
   return (
     <>

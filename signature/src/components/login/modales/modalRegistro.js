@@ -3,9 +3,9 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import "../../../css/formularios.css";
-import RegEx from "../../../scripts/script_RegEx.js";
-import useForm from "../../../scripts/script_UseForm";
-import PopoverEmail from "../../../scripts/script_PopoverEmail";
+import RegEx from "../../../hooks/RegEx.js";
+import useForm from "../../../hooks/UseForm";
+import ModalsEvents from "../../../hooks/ModalsEvents";
 
 const initialForm = {
   correo: "",
@@ -56,10 +56,12 @@ const validationsForm = (form) => {
 };
 
 export default function ModalRegistro() {
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const {
+    show,
+    handleClose,
+    handleShow
+  } = ModalsEvents();
 
   const {
     form,
