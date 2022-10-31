@@ -14,7 +14,7 @@ const Home = () => {
       <NavBar />
       <br />
       <br />
-
+    <main>
       <section className="contenedor">
         <h1>Home</h1>
 
@@ -90,6 +90,7 @@ const Home = () => {
         </div>
       </section>
 
+      </main>
       <Footer />
     </>
   );

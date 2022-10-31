@@ -7,7 +7,12 @@ const Footer = () => {
     
     <footer className="Footer">
 
-            <div class="contenedor-footer">           
+            
+
+            <div class="contenedor-footer">   
+
+            <div className="barraFooter"></div>
+            <br />         
                     <h3 class="titulo-final">&copy; Signature | Año 2022 </h3> 
             </div> 
 

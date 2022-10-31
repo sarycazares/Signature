@@ -38,11 +38,15 @@ const validationsForm = (form) => {
     } else {
       errors.contraseña = "Escribe una contraseña aceptada";
     }
-
+    
+    if((form.confirmarContraseña.trim()) == (form.contraseña.trim())){
     if ((form.confirmarContraseña.trim()).match(regExConfirmarContraseña)) {
       console.log("listo");
     } else {
       errors.confirmarContraseña = "Escribe una contraseña aceptada";
+    }}
+    else{
+      errors.confirmarContraseña = "Escribe una contraseña igual al otro campo";
     }
 
   //if (!form.usuario?.trim()) {
@@ -100,7 +104,7 @@ export default function ModalRegistro() {
                 <label class="datos-form" for="">
                   Correo Electronico
                 </label>
-                {errors.correo && <p> {errors.correo}</p>}
+                {errors.correo && <p className="errorsForm"> {errors.correo}</p>}
               </div>
               <br />
               <div class="grupo">
@@ -118,7 +122,7 @@ export default function ModalRegistro() {
                 <label class="datos-form" for="">
                   Usuario
                 </label>
-                {errors.usuario && <p> {errors.usuario}</p>}
+                {errors.usuario && <p className="errorsForm"> {errors.usuario}</p>}
               </div>
               <br />
               <div class="grupo">
@@ -137,7 +141,7 @@ export default function ModalRegistro() {
                 <label class="datos-form" for="">
                   Contraseña
                 </label>
-                {errors.contraseña && <p> {errors.contraseña}</p>}
+                {errors.contraseña && <p className="errorsForm"> {errors.contraseña}</p>}
               </div>
               <br />
               <div class="grupo">
@@ -151,10 +155,10 @@ export default function ModalRegistro() {
                   required
                 />
                 <span class="barra"></span>
-                <label class="datos-form" for="">
+                <label id="LabelConfContra" class="datos-form" for="">
                   Confirmar Contraseña
                 </label>
-                {errors.confirmarContraseña && <p> {errors.confirmarContraseña}</p>}
+                {errors.confirmarContraseña && <p className="errorsForm"> {errors.confirmarContraseña}</p>}
               </div>
               <br />
               <Button variant="secondary" onClick={handleClose}>

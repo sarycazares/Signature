@@ -48,6 +48,7 @@
 
   --color01: #d38312;
   --color02: #b06ab3;
+  --transparent: rgba(0, 0, 0, 0);
 }
 
 body {

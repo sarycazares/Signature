@@ -203,6 +203,14 @@ width: 100%;
     border-radius: 30%;
 }
 
+.errorsForm{
+    background: var(--red-Velvet);
+    font-size: 12px;
+    color: var(--white-AllOfMe);
+    text-align: center;
+    border-radius: 2em;
+}
+
 /* ///////////////////////////////////// Pagina Registro*/
 
 
@@ -340,6 +348,9 @@ padding: 25%;
     #boton-crearcuentaIniciarSesion{
         padding: 0%;
         }
+    #LabelConfContra{
+        font-size: 15px;
+    }
         
 }
 

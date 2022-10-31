@@ -16,4 +16,12 @@ Footer{
     text-decoration: none;
     margin-right: 10px;
     text-align: center;
+    padding: 20px;
+}
+
+.barraFooter{
+    background: linear-gradient(to right, var(--pink-CaliforniaGirls), var(--cian-TeenageDream));
+    height: 10px;
+    width: 100%;
+    position: absolute;
 }

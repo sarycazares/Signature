@@ -4,18 +4,13 @@
   width: 100%;
   height: 600px;
   background: var(--white-SomeoneLikeYou);
-  background: -webkit-linear-gradient(
-      to right,
-      var(--white-SomeoneLikeYou),
-      var(--white-SomeoneLikeYou)
+  background: -webkit-linear-gradient(to top, var(--white-SomeoneLikeYou),
+  var(--transparent)
     ),
-    url(../../recursos/images/backgrounds/pexels-lumn-167682.jpg);
-  background: linear-gradient(
-      to right,
-      var(--white-SomeoneLikeYou),
-      var(--white-SomeoneLikeYou)
-    ),
-    url(../../recursos/images/backgrounds/pexels-lumn-167682.jpg);
+    url(../../recursos/images/backgrounds/pexels-jess-bailey-designs-1007025.jpg);
+  background: linear-gradient(to top,#4568dca8 20%,#aa4b6b73 50%,
+  var(--transparent)90%),
+    url(../../recursos/images/backgrounds/pexels-jess-bailey-designs-1007025.jpg);
   background-size: cover;
   position: relative;
 }
@@ -53,9 +48,15 @@ header .textos-header {
 }
 
 .textos-header h2 {
-  font-size: 60px;
-  font-weight: 600;
+  display: block;
+  font-size: 92px;
   color: var(--white-AllOfMe);
+  text-shadow: 0 8px 9px #292827a8, 0px -2px 1px #fff;
+  font-weight: bold;
+  letter-spacing: -4px;
+  text-align: center;
+  padding: 5px 100px;
+  border-radius: 20px;
   
   
 }
@@ -76,6 +77,10 @@ header .textos-header {
 
 .buttonHeader:hover {
   background: var(--pink-Bubblepop);
+}
+
+.waveLogin{
+  fill: var(--white-AllOfMe);
 }
 
 /* ////////////////////////    REDUCCION PAGINA */

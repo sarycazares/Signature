@@ -5,3 +5,9 @@
     padding: 5px;
     border-radius: 30%;
 }
+
+main{
+    background: url(../../recursos/images/backgrounds/pexels-jess-bailey-designs-1558690.jpg);
+    background-size: cover;
+  position: relative;
+ }
