@@ -7,7 +7,7 @@
 }
 
 main{
-    background: url(../../recursos/images/backgrounds/pexels-jess-bailey-designs-1558690.jpg);
-    background-size: cover;
-  position: relative;
+    background: url(../../recursos/images/backgrounds/pexelsModificado.jpg);
+    background-size:cover;
+    position: relative;
  }

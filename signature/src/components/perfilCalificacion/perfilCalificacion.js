@@ -18,8 +18,7 @@ const PerfilCalificación = () => {
 
     <NavBar/>    
 
-    <section className="contenedor">
-            <br/><br/><br/><br/><br/>              
+    <section className="contenedor">             
                              
                     <div className="pregunta-fondoPerfil">  
                         <h3 id="MiPerfilTitulo">Profesor</h3>                                 

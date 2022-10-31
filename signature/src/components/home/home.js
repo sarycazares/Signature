@@ -12,11 +12,9 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <br />
-      <br />
+      
     <main>
       <section className="contenedor">
-        <h1>Home</h1>
 
         <div className="pregunta-fondoPerfil">
           <h3>Materias & Profesores</h3>

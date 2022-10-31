@@ -37,6 +37,10 @@ const NavBar = () => {
 
 
 </header>
+
+      <br />
+      <br />
+      <br />
     
     
     </>

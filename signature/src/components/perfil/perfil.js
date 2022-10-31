@@ -7,15 +7,12 @@ const Perfil = () => {
   return (
     
     <>
-   
-   <main>
+  
+    <NavBar/> 
 
-    
+    <main>   
 
-    <NavBar/>    
-
-    <section className="contenedor">
-            <br/><br/><br/><br/><br/>              
+    <section className="contenedor">            
                              
                     <div className="pregunta-fondoPerfil">  
                         <img style={{maxHeight: "500px"}} id="imagen-descripcionPerfil" src={require('../../recursos/images/fotoPerfil/gatico_01.jpg')}/> 
@@ -31,10 +28,11 @@ const Perfil = () => {
                     </div>                                        
 
     </section>
-    
+    </main>
+     
     <Footer/>
     
-</main>
+
 
     
     </>
