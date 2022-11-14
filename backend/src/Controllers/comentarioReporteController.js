@@ -1,5 +1,5 @@
 //reporte de los comentarios sobre las reseñas
-const comentarioResena = require("../models/comentario_resenaSchema");
+/*const comentarioResena = require("../models/comentario_resenaSchema");
 const resenaSc = require("../models/resenaSchema");
 
 exports.resena_promedio = async (req, res) => {
@@ -38,4 +38,4 @@ exports.resena_promedio = async (req, res) => {
       console.log("ERROR", error);
       res.send(error);
     }
-  };
+  };*/

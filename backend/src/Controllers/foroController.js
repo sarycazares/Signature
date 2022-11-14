@@ -1,7 +1,7 @@
 const Foro = require('../Models/foroSchema');
 
 
-exports.conentarioForo_create = async(req, res) => {
+exports.foro_create = async(req, res) => {
   
     const{body: foro} = req;
 

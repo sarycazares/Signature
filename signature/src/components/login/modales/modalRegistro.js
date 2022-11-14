@@ -6,25 +6,72 @@ import "../../../css/formularios.css";
 import RegEx from "../../../hooks/RegEx.js";
 import useForm from "../../../hooks/UseForm";
 import ModalsEvents from "../../../hooks/ModalsEvents";
+import UsuarioCreate from "../modales/crear";
+import { BrowserRouter } from "react-router-dom";
 
 const initialForm = {
-  correo: "",
+  matricula: "",
   usuario: "",
+  facultad: "",
+  carrera: "",
+  semestre: 0,
   contraseña: "",
   confirmarContraseña: "",
 };
 
+
+/*
+export default function StudentCreate() {
+  const [student, setStudent] = useState(studentInit);
+  const guardar = async (event) => {
+    event.preventDefault();
+
+    const res = await createStudent(student);
+    console.log(res);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setStudent({
+      ...student,
+      [name]: value,
+    });
+  };*/
+ 
+
 const validationsForm = (form) => {
   let errors = {};
-  let regExCorreo = RegEx.regEmail;
+  let regExMatricula = RegEx.regMatricula;
+  let regExFacultad = RegEx.regFacultad ;
+  let regExCarrera = RegEx.regCarrera;
+  let regExSemestre = RegEx.regMatricula;
   let regExUsuario = RegEx.regUsuario;
   let regExContraseña = RegEx.regContraseña;
   let regExConfirmarContraseña = RegEx.regContraseñaConfirmada;
-
-    if ((form.correo.trim()).match(regExCorreo)) {
+//if de los RegEx
+    if ((form.matricula.trim()).match(regExMatricula)) {
       console.log("listo");
     } else {
-      errors.correo = "Escribe un correo aceptado";
+      errors.matricula = "Escribe una matricula valida";
+    }
+
+    if ((form.facultad.trim()).match(regExFacultad)) {
+      console.log("listo");
+    } else {
+      errors.facultad = "Escribe correctamente tu facultad";
+    }
+
+    if ((form.carrera.trim()).match(regExCarrera)) {
+      console.log("listo");
+    } else {
+      errors.carrera = "Escribe una carrera valida";
+    }
+
+    if ((form.semestre.trim()).match(regExSemestre)) {
+      console.log("listo");
+    } else {
+      errors.semestre = "Ingresa un semestre correcto";
     }
 
     if ((form.usuario.trim()).match(regExUsuario)) {
@@ -79,6 +126,7 @@ export default function ModalRegistro() {
 
   return (
     <>
+ 
       <Button className="buttonHeader" variant="primary" onClick={handleShow}>
         Registrar
       </Button>
@@ -86,7 +134,7 @@ export default function ModalRegistro() {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div class="form" id="form">
               <h1>Registro</h1>
               <br />
@@ -95,18 +143,84 @@ export default function ModalRegistro() {
                   type="text"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={form.correo}
-                  name="correo"
-                  id="correo"
+                  value={form.matricula}
+                  name="matricula"
+                  id="matricula"
                   required
                 />
                 <span class="barra"></span>
                 <label class="datos-form" for="">
-                  Correo Electronico
+                  Matricula
                 </label>
-                {errors.correo && <p className="errorsForm"> {errors.correo}</p>}
+                {errors.matricula && <p className="errorsForm"> {errors.matricula}</p>}
               </div>
               <br />
+
+              <div class="grupo">
+
+              <input
+                 type="text"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={form.facultad}
+                  name="facultad"
+                  id="facultad"
+                  title="El nombre para la facultad debe contener unicamente letras y, de ser el caso, numeros"
+                  required
+                />
+                <span class="barra"></span>
+                <label class="datos-form" for="">
+                  Facultad
+                </label>
+                {errors.facultad && <p className="errorsForm"> {errors.facultad}</p>}
+
+              </div>
+              <br/> 
+              
+                <div class="grupo">
+
+                <input
+                  type="text"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={form.carrera}
+                    name="carrera"
+                    id="carrera"
+                    title="El nombre para la carrera debe contener unicamente letras y, de ser el caso, numeros"
+                    required
+                  />
+                  <span class="barra"></span>
+                  <label class="datos-form" for="">
+                    Carrera
+                  </label>
+                  {errors.carrera && <p className="errorsForm"> {errors.carrera}</p>}
+
+                </div>
+                <br/> 
+
+
+              <div class="grupo">
+
+                  <input
+                  type="text"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={form.semestre}
+                    name="semestre"
+                    id="semestre"
+                    title="El semestre debe ser digitado unicamente con numeros"
+                    required
+                  />
+                  <span class="barra"></span>
+                  <label class="datos-form" for="">
+                    Semestre
+                  </label>
+                  {errors.semestre && <p className="errorsForm"> {errors.semestre}</p>}
+
+                </div>
+                <br/> 
+
+                
               <div class="grupo">
                 <input
                   type="text"
@@ -161,13 +275,14 @@ export default function ModalRegistro() {
                 {errors.confirmarContraseña && <p className="errorsForm"> {errors.confirmarContraseña}</p>}
               </div>
               <br />
-              <Button variant="secondary" onClick={handleClose}>
+              <Button type="submit" variant="secondary" >
                 Registrarme
               </Button>
             </div>
           </form>
         </Modal.Body>
       </Modal>
+     
     </>
   );
 }

@@ -1,5 +1,5 @@
 const Maestro = require("../Models/maestroSchema");
-const Materia = require("../Models/materiaSchema");
+//const Materia = require("../Models/materiaSchema");
 
 
 exports.maestro_create = async(req, res) => {
