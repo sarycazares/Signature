@@ -22,6 +22,6 @@ fecha:{
 },
 
 })
-
+console.log("entra resena");
 const Resena = mongoose.model("resena", resenaSchema);
 module.exports = Resena;

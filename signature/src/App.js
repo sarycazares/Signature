@@ -1,16 +1,18 @@
 import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom" ;
+import {Route, Routes} from "react-router-dom" ;
 import Login from "./components/login/login";
 import Home from "./components/home/home";
+import usuario from "./components/login/modales/";
 import Perfil from "./components/perfil/perfil";
 import PerfilCalificación from "./components/perfilCalificacion/perfilCalificacion";
 import UsuarioCreate from "./components/login/modales/crear";
+
 
 function App(){
 
     return (
 
-        <BrowserRouter>
+    
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/home" element={<Home />} />
@@ -18,11 +20,12 @@ function App(){
           <Route exact path="/perfilcalificacion" element={<PerfilCalificación />} />
           <Route exact path="/crear/usuario" element={<UsuarioCreate />} /> {/** agregar uno */}
           </Routes>
-        </BrowserRouter>
+   //enlaces para dirigir a un componente, lo que te va a pintar en pantalla
+   //segun lo que se escriba en el buscador y segun la instancia que se ingrese sera la pantalla que aparecera
 
     );
-
-
+        
+    
 }
 
 export default App;

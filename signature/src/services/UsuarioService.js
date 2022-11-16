@@ -14,8 +14,9 @@ export const getUsuarios = async () => {
 
   export const createUsuario = async (usuario) => {
     try {
+      console.log(usuario);
       const response = await axios.post("/usuario", usuario);
-      
+      console.log("si que si");
       return "Creado con éxito";
   
     } catch (err) {

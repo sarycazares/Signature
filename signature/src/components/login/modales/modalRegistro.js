@@ -14,31 +14,11 @@ const initialForm = {
   usuario: "",
   facultad: "",
   carrera: "",
-  semestre: 0,
+  semestre: "",
   contraseña: "",
   confirmarContraseña: "",
+
 };
-
-
-/*
-export default function StudentCreate() {
-  const [student, setStudent] = useState(studentInit);
-  const guardar = async (event) => {
-    event.preventDefault();
-
-    const res = await createStudent(student);
-    console.log(res);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setStudent({
-      ...student,
-      [name]: value,
-    });
-  };*/
- 
 
 const validationsForm = (form) => {
   let errors = {};
@@ -51,44 +31,44 @@ const validationsForm = (form) => {
   let regExConfirmarContraseña = RegEx.regContraseñaConfirmada;
 //if de los RegEx
     if ((form.matricula.trim()).match(regExMatricula)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.matricula = "Escribe una matricula valida";
     }
 
     if ((form.facultad.trim()).match(regExFacultad)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.facultad = "Escribe correctamente tu facultad";
     }
 
     if ((form.carrera.trim()).match(regExCarrera)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.carrera = "Escribe una carrera valida";
     }
 
     if ((form.semestre.trim()).match(regExSemestre)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.semestre = "Ingresa un semestre correcto";
     }
 
     if ((form.usuario.trim()).match(regExUsuario)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.usuario = "Escribe un usuario aceptado";
     }
 
     if ((form.contraseña.trim()).match(regExContraseña)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.contraseña = "Escribe una contraseña aceptada";
     }
     
     if((form.confirmarContraseña.trim()) == (form.contraseña.trim())){
     if ((form.confirmarContraseña.trim()).match(regExConfirmarContraseña)) {
-      console.log("listo");
+      //console.log("listo");
     } else {
       errors.confirmarContraseña = "Escribe una contraseña aceptada";
     }}
@@ -106,13 +86,18 @@ const validationsForm = (form) => {
   return errors;
 };
 
-export default function ModalRegistro() {
+export default function ModalRegistro(props) {
+
+
 
   const {
     show,
     handleClose,
     handleShow
   } = ModalsEvents();
+
+  // Se mandan a importar las funciones necesarias desde hooks de UseForm que hara cada
+  // comportamiento de mi form
 
   const {
     form,
@@ -122,7 +107,11 @@ export default function ModalRegistro() {
     handleChange,
     handleBlur,
     handleSubmit,
+
+  
   } = useForm(initialForm, validationsForm);
+
+  
 
   return (
     <>

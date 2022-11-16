@@ -39,6 +39,7 @@ contrasena: {
 },
 
 });
-console.log("Entra2");
+
+console.log("entra usuario");
 const Usuario = mongoose.model("usuario", UsuarioSchema);
 module.exports = Usuario;

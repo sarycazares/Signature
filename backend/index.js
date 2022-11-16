@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
-const port = 3000;
+const port = 3001;
 require('./src/Models/connection.js');
 
 const usuario_router = require('./src/Routes/usuarioRouter');

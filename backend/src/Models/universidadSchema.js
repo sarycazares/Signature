@@ -22,6 +22,6 @@ estado:{
 },
 
 })
-
+console.log("entra universidad");
 const Universidad = mongoose.model("universidad", universidadSchema);
 module.exports = Universidad;

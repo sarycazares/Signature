@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const usuarioURL = require('../Routes/usuarioRouter');
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/Signature_PaginaWeb", { useNewUrlParser: true})
@@ -8,3 +13,6 @@ mongoose.connect("mongodb://localhost:27017/Signature_PaginaWeb", { useNewUrlPar
     Process.exit();
 });
 
+app.use('/app',usuarioURL); //inicializacion de router usuario
+app.use(express.json());
+app.use(cors()); //para manejo de instrucciones HTTP

@@ -1,34 +1,37 @@
 const Usuario = require('../Models/usuarioSchema');
 const Carrera = require('../Models/carreraSchema');
+const { request } = require('express');
 
 exports.usuario_create = async(req, res) => {
-  console.log("Entra");
-    const{body: usuario} = req;
+  console.log("Entra a creacion");
+    //const{body: usuario} = req;
 
-    const usuarioDB = new Usuario(usuario);
+    const usuarioDB = new Usuario({ //se ingresa la informacion despues de mandar orden post en el router
+      matricula:req.body.matricula,
+      usuario:req.body.usuario,
+      facultad:req.body.facultad,
+      carrera:req.body.carrera,
+      semestre:req.body.semestre,
+      contrasena:req.body.contrasena
+    })
     const err = await usuarioDB.validate();
 
     if(err.errors) {
         console.log(err);
         res.send(err);
       }
-      else {
-        //guardar
-      }
-    
-      await usuarioDB.save().catch((err) => console.log("Algo ha fallado", err));
 
-      const carreraDB = Carrera.findOne({ _id: usuarioDB.carrera });
+      await usuarioDB.save().catch((err) => console.log("Algo ha fallado", err)); //se guarda la info y se validan posibles erroes
+      
+      /*const carreraDB = Carrera.findOne({ _id: usuarioDB.carrera });
       const carreraSaved = Carrera.findOneAndUpdate(
         { _id: carreraDB.carrera },
         { usuarios: [...carreraDB.carrera, carreraDB._id] }
-      );
-    
+      );*/
       res.send({
         message: "Estudiante creado con exito",
-        data: carreraDB,
+        data: usuarioDB,
       });
-
 };
 
 exports.usuario_update = async(req, res) => {
