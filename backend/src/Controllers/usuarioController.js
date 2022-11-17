@@ -4,22 +4,24 @@ const { request } = require('express');
 
 exports.usuario_create = async(req, res) => {
   console.log("Entra a creacion");
-    //const{body: usuario} = req;
+    const{body: usuario} = req;
 
-    const usuarioDB = new Usuario({ //se ingresa la informacion despues de mandar orden post en el router
+    /*const usuarioDB = new Usuario({ //se ingresa la informacion despues de mandar orden post en el router
       matricula:req.body.matricula,
       usuario:req.body.usuario,
       facultad:req.body.facultad,
       carrera:req.body.carrera,
       semestre:req.body.semestre,
       contrasena:req.body.contrasena
-    })
-    const err = await usuarioDB.validate();
+    })*/
+    const usuarioDB = new Usuario(usuario);
+    console.log("sale de compilacion")
+    /*const err = await usuarioDB.validate();
 
     if(err.errors) {
         console.log(err);
-        res.send(err);
-      }
+       res.send(err);
+      }*/
 
       await usuarioDB.save().catch((err) => console.log("Algo ha fallado", err)); //se guarda la info y se validan posibles erroes
       

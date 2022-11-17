@@ -7,7 +7,7 @@ const usuarioInit = {
     usuario: "",
     facultad: "",
     carrera: "",
-    semestre: 0,
+    semestre: "",
     contraseña: "",
     confirmarContraseña: "",
   };

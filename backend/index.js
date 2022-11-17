@@ -2,7 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const port = 3001;
+const cors = require('cors');
 require('./src/Models/connection.js');
+app.use(cors()); 
+
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+
 
 const usuario_router = require('./src/Routes/usuarioRouter');
 const carrera_router = require('./src/Routes/carreraRouter');
@@ -34,8 +43,10 @@ app.use('/api',Foro_router);
 app.use('/api',comForo_router);
 app.use('/api',comRes_router);
 app.use('/api',maestro_router);
-
 app.use('/api',comrepo_router);
+app.use(cors(corsOptions));
+
+//app.use(cors({origin: 'http://localhost:3001/api/usuario'}));
 
 app.listen(port, () => {
     console.log(`La aplicación se está ejecutando en el puerto: ${port}`)

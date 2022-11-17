@@ -16,12 +16,14 @@ usuario:{
 
 facultad:[{
     type: mongoose.Types.ObjectId,
+    type: String,
     ref: "facultad",
 }
 ],
 
 carrera:[{
     type: mongoose.Types.ObjectId,
+    type: String,
     ref: "carrera",
 }
 ],
@@ -32,7 +34,7 @@ semestre:{
     maxlenght:2,
 },
 
-contrasena: {
+contraseña: {
     type: String,
     required: true,
     

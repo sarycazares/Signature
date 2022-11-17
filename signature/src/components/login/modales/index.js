@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import {getUsuarios} from '../../../services/UsuarioService';
 
 export default function Usuarios(props) {
@@ -16,3 +16,4 @@ export default function Usuarios(props) {
 
   return <div>Usuarios</div>;
 }
+*/
