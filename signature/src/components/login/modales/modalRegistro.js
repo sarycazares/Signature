@@ -8,6 +8,7 @@ import useForm from "../../../hooks/UseForm";
 import ModalsEvents from "../../../hooks/ModalsEvents";
 import UsuarioCreate from "../modales/crear";
 import { BrowserRouter } from "react-router-dom";
+import {ReCAPTCHA} from "react-google-recaptcha";
 
 const initialForm = {
   matricula: "",
@@ -88,7 +89,7 @@ const validationsForm = (form) => {
 
 export default function ModalRegistro(props) {
 
-
+  const captchaRef = useRef(null);
 
   const {
     show,
@@ -109,7 +110,7 @@ export default function ModalRegistro(props) {
     handleSubmit,
 
   
-  } = useForm(initialForm, validationsForm);
+  } = useForm(initialForm, validationsForm, captchaRef);
 
   
 
@@ -264,6 +265,9 @@ export default function ModalRegistro(props) {
                 {errors.confirmarContraseña && <p className="errorsForm"> {errors.confirmarContraseña}</p>}
               </div>
               <br />
+
+              <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} ref={captchaRef}></ReCAPTCHA>
+
               <Button type="submit" variant="secondary" >
                 Registrarme
               </Button>
