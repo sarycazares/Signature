@@ -40,6 +40,9 @@
     padding: 20px 10px;
     box-shadow: 0 0 10px 0 #6F65B8;
     border-radius: 8px;
+    border-color: var(--violet-AllToWell);
+    border-width: 6px;
+    border-style: hidden hidden solid;
     }
     
     #imagen-perfilpreguntaPerfil{

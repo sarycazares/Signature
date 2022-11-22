@@ -17,7 +17,7 @@ const NavBar = () => {
     <nav className="nav-menu">
         <div className="usuariobienvenida">
         <Link to="/perfil" className="">
-            <img className="imagen-perfilusuario" src={require('../../recursos/images/fotoPerfil/gatico_01.jpg')} width="60" height="60"/>
+            <img className="imagen-perfilusuario" src={require('../../recursos/images/icons/user-solid-60.png')}  style={{backgroundColor: '#49408C'}}width="60" height="60"/>
             <h1 className="bienvenida_usuario"> Bienvenido</h1>
             <h1 className="nombre_usuario" id="nombre_usuario">AryMistery</h1> 
         </Link></div>

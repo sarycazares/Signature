@@ -6,6 +6,7 @@ import usuario from "./components/login/modales/";
 import Perfil from "./components/perfil/perfil";
 import PerfilCalificación from "./components/perfilCalificacion/perfilCalificacion";
 import UsuarioCreate from "./components/login/modales/crear";
+import Admin from "./components/admin/inicioAdmin";
 
 
 function App(){
@@ -18,6 +19,7 @@ function App(){
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/perfil" element={<Perfil />} />
           <Route exact path="/perfilcalificacion" element={<PerfilCalificación />} />
+          <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/crear/usuario" element={<UsuarioCreate />} /> {/** agregar uno */}
           </Routes>
    //enlaces para dirigir a un componente, lo que te va a pintar en pantalla

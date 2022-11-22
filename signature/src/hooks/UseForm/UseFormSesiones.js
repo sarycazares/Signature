@@ -1,12 +1,12 @@
 import {useState, useRef}from "react";
-import {createUsuario} from "../services/UsuarioService"
-import {ReCAPTCHA} from "react-google-recaptcha";
+import TokenRecaptcha from '../../hooks/token';
 
 
-export default  function useForm(initialForm, validateForm, captchaRef){
+
+export default  function useFormSesiones(initialForm, validateForm, captchaRef){
 
 
-const[captchaReference] = useState(captchaRef);
+const[captcha] = useState(captchaRef);
 const[form,setForm] = useState(initialForm);
 const[errors,setErrors]=useState({});
 const[loading,setLoading]=useState(false);
@@ -14,13 +14,12 @@ const[response,setResponse]=useState(null);
 
 const handleChange=(event)=>{
     const{name,value} = event.target;
-//console.log('entra aqui');
+
 setForm({
     ...form,
     [name]: value,
   });
 
-  //console.log(form);
 
 };
 const handleBlur=(event)=>{
@@ -30,9 +29,21 @@ setErrors(validateForm(form));
 
 const handleSubmit= async (event)=>{
     event.preventDefault();
-    const token =  await captchaReference.current.getValue();
-    captchaReference.current.reset();
+    
+    const token = await captcha.current.getValue();
+    captcha.current.reset();
+    setForm({
+        ...form,
+        tokenNum: token
+    });
     console.log(token);
+    console.log(form);
+
+   /* await axios.post("http://localhost:3001/api", {token})
+    .then(res =>  console.log(res))
+    .catch((error) => {
+    console.log(error);
+    }) */
 
     //const res = await createUsuario(form);
     //console.log(res);

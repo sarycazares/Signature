@@ -79,6 +79,9 @@
     
 }
 
+.colorInput{
+    height: 3em;
+}
 
 .form>button{
     background: linear-gradient(to right, var(--pink-CaliforniaGirls), var(--cian-TeenageDream));       
@@ -209,6 +212,21 @@ width: 100%;
     color: var(--white-AllOfMe);
     text-align: center;
     border-radius: 2em;
+}
+
+.SeleccionarButton{
+    text-align: center;
+    color: var(--white-AllOfMe);
+    background: var(--violet-NotGivingYouUp);
+    padding: .5em 1em;
+    width: 15em;
+    text-align: center;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* ///////////////////////////////////// Pagina Registro*/

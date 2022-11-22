@@ -1,0 +1,31 @@
+.Admin {
+  color: var(--white-AllOfMe);
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    var(--pink-CaliforniaGirls),
+    var(--cian-TeenageDream)
+  );
+}
+
+.ContenedorAdmin {
+  background: var(--white-AllOfMe);
+  border-radius: 10px;
+  margin: 5px 30px 30px 30px;
+  border-color: var(--black-SmoothCriminal) 10px 10px;
+}
+.AdminTitle {
+  color: var(--white-AllOfMe);
+  text-align: center;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 0 40px;
+  background: var(--violet-AllTooWell);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+}

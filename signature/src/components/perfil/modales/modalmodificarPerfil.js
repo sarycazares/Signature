@@ -3,96 +3,108 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import "../../../css/formularios.css";
-import RegEx from "../../../hooks/RegEx.js";
+import RegEx from "../../../hooks/RegEx";
 import useFormUsuario from "../../../hooks/UseForm/UseFormUsuario";
 import ModalsEvents from "../../../hooks/ModalsEvents";
-import UsuarioCreate from "../modales/crear";
 import { BrowserRouter } from "react-router-dom";
+import {ReCAPTCHA} from "react-google-recaptcha";
 
 const initialForm = {
   matricula: "",
   usuario: "",
   facultad: "",
   carrera: "",
-  semestre: "1",
+  semestre: "",
   contraseña: "",
   confirmarContraseña: "",
-  color: "#49408c",
+  color:"#49408c",
+
 };
 
 const validationsForm = (form) => {
   let errors = {};
   let regExMatricula = RegEx.regMatricula;
-  let regExFacultad = RegEx.regFacultad;
+  let regExFacultad = RegEx.regFacultad ;
   let regExCarrera = RegEx.regCarrera;
   let regExSemestre = RegEx.regMatricula;
   let regExUsuario = RegEx.regUsuario;
   let regExContraseña = RegEx.regContraseña;
   let regExConfirmarContraseña = RegEx.regContraseñaConfirmada;
-  //if de los RegEx
-  if (form.color.trim().match("")) {
-    //console.log("listo");
-  } else {
-    errors.color = "Elije un color";
-  }
+//if de los RegEx
+if ((form.color.trim()).match("")) {
+  //console.log("listo");
+} else {
+  errors.color = "Elije un color";
+}
 
-  if (form.matricula.trim().match(regExMatricula)) {
-    //console.log("listo");
-  } else {
-    errors.matricula = "Escribe una matricula valida";
-  }
 
-  if (form.facultad.trim().match(regExFacultad)) {
-    //console.log("listo");
-  } else {
-    errors.facultad = "Escribe correctamente tu facultad";
-  }
+    if ((form.matricula.trim()).match(regExMatricula)) {
+      //console.log("listo");
+    } else {
+      errors.matricula = "Escribe una matricula valida";
+    }
 
-  if (form.carrera.trim().match(regExCarrera)) {
-    //console.log("listo");
-  } else {
-    errors.carrera = "Escribe una carrera valida";
-  }
+    if ((form.facultad.trim()).match(regExFacultad)) {
+      //console.log("listo");
+    } else {
+      errors.facultad = "Escribe correctamente tu facultad";
+    }
 
-  if (form.semestre.trim().match(regExSemestre)) {
-    //console.log("listo");
-  } else {
-    errors.semestre = "Ingresa un semestre correcto";
-  }
+    if ((form.carrera.trim()).match(regExCarrera)) {
+      //console.log("listo");
+    } else {
+      errors.carrera = "Escribe una carrera valida";
+    }
 
-  if (form.usuario.trim().match(regExUsuario)) {
-    //console.log("listo");
-  } else {
-    errors.usuario = "Escribe un usuario aceptado";
-  }
+    if ((form.semestre.trim()).match(regExSemestre)) {
+      //console.log("listo");
+    } else {
+      errors.semestre = "Ingresa un semestre correcto";
+    }
 
-  if (form.contraseña.trim().match(regExContraseña)) {
-    //console.log("listo");
-  } else {
-    errors.contraseña = "Escribe una contraseña aceptada";
-  }
+    if ((form.usuario.trim()).match(regExUsuario)) {
+      //console.log("listo");
+    } else {
+      errors.usuario = "Escribe un usuario aceptado";
+    }
 
-  if (form.confirmarContraseña.trim() == form.contraseña.trim()) {
-    if (form.confirmarContraseña.trim().match(regExConfirmarContraseña)) {
+    if ((form.contraseña.trim()).match(regExContraseña)) {
+      //console.log("listo");
+    } else {
+      errors.contraseña = "Escribe una contraseña aceptada";
+    }
+    
+    if((form.confirmarContraseña.trim()) == (form.contraseña.trim())){
+    if ((form.confirmarContraseña.trim()).match(regExConfirmarContraseña)) {
       //console.log("listo");
     } else {
       errors.confirmarContraseña = "Escribe una contraseña aceptada";
+    }}
+    else{
+      errors.confirmarContraseña = "Escribe una contraseña igual al otro campo";
     }
-  } else {
-    errors.confirmarContraseña = "Escribe una contraseña igual al otro campo";
-  }
 
   //if (!form.usuario?.trim()) {
-  //errors.usuario = "El Usuario es requerido";
+    //errors.usuario = "El Usuario es requerido";
   //}else if(regExUsuario.test(form.usuario.trim())){
-  // errors.usuario = "Escribe un usuario aceptado";
-  // };
+   // errors.usuario = "Escribe un usuario aceptado";
+   // };
+
 
   return errors;
 };
 
-export default function ModalRegistro(props) {
-  const { show, handleClose, handleShow } = ModalsEvents();
+
+
+export default function ModalModificarPerfil(props) {
+
+  const captcha = useRef(null);
+
+  const {
+    show,
+    handleClose,
+    handleShow
+  } = ModalsEvents();
 
   // Se mandan a importar las funciones necesarias desde hooks de UseForm que hara cada
   // comportamiento de mi form
@@ -105,21 +117,25 @@ export default function ModalRegistro(props) {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useFormUsuario(initialForm, validationsForm);
+
+  
+  } = useFormUsuario(initialForm, validationsForm, captcha);
+
+  
 
   return (
     <>
-      <Button className="buttonHeader" variant="primary" onClick={handleShow}>
-        Registrar
-      </Button>
+ 
+ <abbr onClick={handleShow} title="Modificar Perfil" id="ModificarPerfilModal"><a className="categoria" id="CerrarSesionCategoria"><img src={require('../../../recursos/images/icons/face-solid-24.png')}/></a></abbr>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
+<Modal show={show} onHide={handleClose}>
+  <Modal.Header closeButton>
+  </Modal.Header>
+  <Modal.Body>
           <form onSubmit={handleSubmit}>
             <div className="form" id="form">
-              <h1>Registro</h1>
-              <br />
+              <h1>Modificar</h1>
+
               <div className="grupo">
                 <img
                   style={{ maxHeight: "500px", backgroundColor: form.color }}
@@ -274,13 +290,15 @@ export default function ModalRegistro(props) {
               </div>
               <br />
 
-              <Button type="submit" variant="secondary">
-                Registrarme
+
+              <Button type="submit" variant="secondary" >
+                Modificar
               </Button>
             </div>
           </form>
         </Modal.Body>
       </Modal>
+     
     </>
   );
 }

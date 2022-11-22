@@ -6,6 +6,7 @@ import '../../css/index.css';
 import ModalAgregarCalificacion from '../navBar/modales/modalAgregarCalificacion'
 import ModalModificarCalificacion from './modales/modalModificarCalificacion'
 import ModalEliminarCalificacion from "./modales/modalEliminarCalificación";
+import ComentariosCalificacion from "./comentariosCalificacion";
 
 const PerfilCalificación = () => {
   return (
@@ -37,6 +38,8 @@ const PerfilCalificación = () => {
                         <br/>   
                         </div>                
                     </div>                                        
+
+                        <ComentariosCalificacion/>
 
     </section>
     

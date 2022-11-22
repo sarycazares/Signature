@@ -81,6 +81,11 @@ header .textos-header {
   fill: var(--white-AllOfMe);
 }
 
+.ReCaptcha{
+  position: relative;
+  align-items: center;
+}
+
 /* ////////////////////////    REDUCCION PAGINA */
 
 @media only screen and (max-width: 320px) {
