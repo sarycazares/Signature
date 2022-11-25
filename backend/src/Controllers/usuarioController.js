@@ -128,13 +128,17 @@ exports.usuario_login = async (req, res) =>{
   // Método optimizado para buscar por ids.
   //const data = await Usuario.find({}); // Encuentra el primer registro que coincide con la condición. 
   const data = await Usuario.findOne({usuario: body.usuario, contraseña: body.contraseña}); // Es lo mismo que hacer lo de arriba
-  console.log("Entro al metodo y encontro");
+ 
   if(data){
-      res.send(data);
-      res.sendFile('../../../signature/src/components/home/home', {root: __dirname});
+      //res.sendFile('../../../signature/src/components/home/home', {root: __dirname});
       //location.assign('/home');
+       console.log("Entro al metodo y encontro");
+      // res.sendStatus(200);
+       res.send(data);
+       
+       
   }else{
-      res.send({message: "Usuario o contraseña incorrectos."})
+      console.log("No se encontro nada");
       console.log("Entro al metodo y no encontro");
   }
 }

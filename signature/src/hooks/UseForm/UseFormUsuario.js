@@ -1,10 +1,11 @@
 import {useState, useRef}from "react";
 import {createUsuario, updateUsuario, logUsuario} from "../../services/UsuarioService";
 import {ReCAPTCHA} from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
 
 
 export default  function useFormUsuario(initialForm, validateForm){
-
+    const navigate = useNavigate();
 
 //const[captchaRef] = useState(captcha);
 const[form,setForm] = useState(initialForm);
@@ -51,8 +52,10 @@ const handleSubmitModif = async(event)=>{
 const handleSubmitLog = async(event)=>{
     event.preventDefault();
     const res = await logUsuario(form);
-    console.log("pasa por aqui");
-    console.log(res);
+    console.log("clic");
+    navigate("/home");        
+    console.log(res);  
+    //if para verificar si lo que se esta mandando es un mensaje erroneo u otro mensaje correcto
 }
 
 return{

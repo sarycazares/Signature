@@ -1,5 +1,7 @@
 import {AxiosConfig as axios} from "./AxiosConfig"
 
+
+
 export const getUsuarios = async () => {
     //const response = await axios({ url: "/students", method: "get" });
     try {
@@ -49,11 +51,14 @@ export const getUsuarios = async () => {
 
   export const logUsuario = async (usuario) =>{
     try{
+ 
       console.log("entro en login");
       const response = await axios.post("/usuario/login", usuario);
-      return "Usuario accede";
+      //service recibe la info
+        return response.data;
+      
     }catch(err){
       console.error(err);
-      return "Ocurrio un error inesperado";
+      console.log("Ocurrio un error, no se encontro nada");
     }
   };
