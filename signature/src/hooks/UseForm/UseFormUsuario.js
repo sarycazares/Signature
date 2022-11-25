@@ -1,5 +1,5 @@
 import {useState, useRef}from "react";
-import {createUsuario} from "../../services/UsuarioService";
+import {createUsuario, updateUsuario, logUsuario} from "../../services/UsuarioService";
 import {ReCAPTCHA} from "react-google-recaptcha";
 
 
@@ -28,6 +28,7 @@ const handleBlur=(event)=>{
 setErrors(validateForm(form));
 };
 
+//submit de creacion
 const handleSubmit= async (event)=>{
     event.preventDefault();
     //const token =  await captchaRef.current.getValue();
@@ -35,12 +36,27 @@ const handleSubmit= async (event)=>{
    // captchaRef.current.reset();
     
 
-    const res = await createUsuario(form);
+    const res = await createUsuario(form); //redirige a Usuarioservice para tomar la funcion createUsuario
     console.log(res);
 };
 
+//submit de modificacion
+const handleSubmitModif = async(event)=>{
+    event.preventDefault();
+    const res = await updateUsuario(form);
+    console.log(res);
+}
+
+//submit de login
+const handleSubmitLog = async(event)=>{
+    event.preventDefault();
+    const res = await logUsuario(form);
+    console.log("pasa por aqui");
+    console.log(res);
+}
+
 return{
-form, errors,loading,response,handleChange,handleBlur, handleSubmit
+form, errors,loading,response,handleChange,handleBlur, handleSubmit, handleSubmitModif, handleSubmitLog
 
 };
 }

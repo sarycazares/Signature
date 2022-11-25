@@ -8,27 +8,7 @@ nombre:{
     required: true,
 },
 
-siglas:{
-    type: String,
-    minlenght: 2,
-    maxlenght: 30,
-    required: true
-},
-
-universidad:[{
-    type: mongoose.Types.ObjectId,
-    ref: "universidad",
-    required:true,
-}
-],
-
-ciudad:{
-    type: String,
-    minlenght: 2,
-    maxlenght: 255,
-    required: true,
-},
-
+//se utilizara unicamente el nombre pues utilizaremos facultades de la UANL unicamente
 })
 
 const Facultad = mongoose.model("facultad", facultadSchema);

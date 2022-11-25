@@ -23,4 +23,37 @@ export const getUsuarios = async () => {
       console.error(err);
       return "Ocurrió un error inesperado";
     }
+
+  };
+
+  export const updateUsuario = async (usuario) =>{
+    try{
+      console.log("entro en modificar");
+      const response = await axios.put("/usuario/modificar", usuario);
+      return "Usuario modificado";
+    }catch(err){
+      console.error(err);
+      return "Ocurrio un error inesperado";
+    }
+  };
+
+  export const deleteUsuario = async(usuario) =>{
+    try{
+
+    }catch{
+
+    }
+
+    
+  }
+
+  export const logUsuario = async (usuario) =>{
+    try{
+      console.log("entro en login");
+      const response = await axios.post("/usuario/login", usuario);
+      return "Usuario accede";
+    }catch(err){
+      console.error(err);
+      return "Ocurrio un error inesperado";
+    }
   };

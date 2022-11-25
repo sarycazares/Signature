@@ -9,16 +9,9 @@ nombre:{
 },
 
 
-cedula:{
+facultad:[{
     type: String,
-    minlenght: 6,
-    maxlenght: 64,
-    required: true,
-},
-
-materia:[{
-    type: mongoose.Types.ObjectId,
-    ref: "materia",
+    facultad:{type:mongoose.Types.ObjectId, ref:"facultad"},
     required:true,
 }
 ],

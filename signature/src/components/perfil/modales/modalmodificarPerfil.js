@@ -117,6 +117,7 @@ export default function ModalModificarPerfil(props) {
     handleChange,
     handleBlur,
     handleSubmit,
+    handleSubmitModif
 
   
   } = useFormUsuario(initialForm, validationsForm, captcha);
@@ -132,7 +133,7 @@ export default function ModalModificarPerfil(props) {
   <Modal.Header closeButton>
   </Modal.Header>
   <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmitModif}>
             <div className="form" id="form">
               <h1>Modificar</h1>
 

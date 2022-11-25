@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import ModalRegistro from './modalRegistro';
+import ModalRegistro from '../../login/modales/modalRegistro';
 import { createUsuario } from "../../../services/UsuarioService";
 
 const usuarioInit = {
+    color: "",
     matricula: "",
     usuario: "",
     facultad: "",

@@ -3,14 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ReCAPTCHA from "react-google-recaptcha";
 import {useNavigate } from "react-router-dom";
-
+import reCAPTCHA from "react-google-recaptcha"
 import '../../../css/formularios.css';
 import ModalsEvents from '../../../hooks/ModalsEvents';
 import Redirects from '../../../hooks/Redirects';
 //import TokenRecaptcha from '../../../hooks/token';
 
 import RegEx from "../../../hooks/RegEx.js";
-import useFormSesiones from "../../../hooks/UseForm/UseFormSesiones";
+import useFormSesiones from "../../../hooks/UseForm/UseFormUsuario";
 
 
 const initialForm = {
@@ -59,7 +59,8 @@ export default function ModalIniciarSesion() {
     response,
     handleChange,
     handleBlur,
-    handleSubmit,  
+    handleSubmitLog,  
+    handleSubmit, 
   } = useFormSesiones(initialForm, validationsForm, captchaRef);
 
   return (
@@ -74,7 +75,7 @@ export default function ModalIniciarSesion() {
         <Modal.Body>
 
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmitLog}>
         <div class="form" id="form">
                 <h1>Iniciar Sesión</h1>
                 <br/>

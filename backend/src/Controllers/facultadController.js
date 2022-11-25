@@ -5,27 +5,27 @@ exports.facultad_create = async(req, res) => {
     const{body: facultad} = req;
 
     const facultadDB = new Usuario(facultad);
-    const err = await facultadDB.validate();
+    //const err = await facultadDB.validate();
 
-    if(err.errors) {
+    /*if(err.errors) {
         console.log(err);
         res.send(err);
       }
       else {
         //guardar
-      }
-    
+      }*/
+      console.log("sale de compilacion")
       await facultadDB.save().catch((err) => console.log("Algo ha fallado", err));
 
-      const universidadDB = Universidad.findOne({ _id: UniversidadDB.universidad });
+      /*const universidadDB = Universidad.findOne({ _id: UniversidadDB.universidad });
       const universidadSaved = Universidad.findOneAndUpdate(
         { _id: universidadDB.universidad },
         { uni: [...universidadDB.universidad, universidadDB._id] }
-      );
+      );*/
     
       res.send({
-        message: "Estudiante creado con exito",
-        data: universidadDB,
+        message: "Facultad creada con exito",
+        data: facultadDB,
       });
 
 };

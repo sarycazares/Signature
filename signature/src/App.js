@@ -5,7 +5,7 @@ import Home from "./components/home/home";
 import usuario from "./components/login/modales/";
 import Perfil from "./components/perfil/perfil";
 import PerfilCalificación from "./components/perfilCalificacion/perfilCalificacion";
-import UsuarioCreate from "./components/login/modales/crear";
+import UsuarioCreate from "./components/funciones/usuario/crear";
 import Admin from "./components/admin/inicioAdmin";
 
 

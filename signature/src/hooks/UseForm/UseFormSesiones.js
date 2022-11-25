@@ -1,7 +1,8 @@
 import {useState, useRef}from "react";
-import TokenRecaptcha from '../../hooks/token';
 
 
+//cosas que agregue
+import {tokenProcess} from '../../services/TokenProcess';
 
 export default  function useFormSesiones(initialForm, validateForm, captchaRef){
 
@@ -36,17 +37,11 @@ const handleSubmit= async (event)=>{
         ...form,
         tokenNum: token
     });
-    console.log(token);
-    console.log(form);
+    //console.log(token);
+   // console.log(form);
 
-   /* await axios.post("http://localhost:3001/api", {token})
-    .then(res =>  console.log(res))
-    .catch((error) => {
-    console.log(error);
-    }) */
-
-    //const res = await createUsuario(form);
-    //console.log(res);
+    const res = await tokenProcess(token);
+    console.log(res);
 };
 
 return{

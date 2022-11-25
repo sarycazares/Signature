@@ -1,25 +1,46 @@
 const mongoose = require("mongoose"); //se crea una instancia para uso de mongoose
 const resenaSchema = mongoose.Schema({
 
-materia:{
-    type: mongoose.Types.ObjectId,
-    required:true,
+facultad:{
+type: String,
+required: true,
+facultad:{type: mongoose.Types.ObjectId, ref: "facultad"},
 },
 
-maestro:{
-    type: mongoose.Types.ObjectId,
-    required:true,
+carrera:{
+    type: String,
+    required: true,
+    carrera:{type: mongoose.Types.ObjectId, ref: "carrera"},
+},
+
+semestre:{
+    type: Number,
+    required: true
+},
+
+materia:{
+    type: String,
+    required: true,
+    materia:{type: mongoose.Types.ObjectId, ref: "materia"}
+},
+
+profesor:{
+    type: String,
+    required: true,
+    maestro:{type: mongoose.Types.ObjectId, ref:"maestro"}
 },
 
 calificacion:{
-    type: Number,
-    required:true,
+    type: String,
+    required: true
 },
 
-fecha:{
-    type: Date,
-    required:true,
-},
+descripcion:{
+    type: String,
+    required: true,
+    minlenght: 20
+}
+
 
 })
 console.log("entra resena");

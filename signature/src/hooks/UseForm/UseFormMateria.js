@@ -1,5 +1,5 @@
 import {useState, useRef}from "react";
-
+import {createMateria, updateUsuario} from "../../services/materiaService";
 
 
 export default  function useFormMateria(initialForm, validateForm){
@@ -26,8 +26,8 @@ setErrors(validateForm(form));
 
 const handleSubmit= async (event)=>{
     event.preventDefault();
-    //const res = await createUsuario(form);
-    //console.log(res);
+    const res = await createMateria(form);
+    console.log(res);
 };
 
 return{

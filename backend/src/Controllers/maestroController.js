@@ -6,7 +6,7 @@ exports.maestro_create = async(req, res) => {
     const{body: maestro} = req;
 
     const maestroDB = new Maestro(maestro);
-    const err = await maestroDB.validate();
+   /* const err = await maestroDB.validate();
 
     if(err.errors) {
         console.log(err);
@@ -14,19 +14,19 @@ exports.maestro_create = async(req, res) => {
       }
       else {
         //guardar
-      }
+      }*/
     
       await maestroDB.save().catch((err) => console.log("Algo ha fallado", err));
 
-      const materiaDB = Materia.findOne({ _id: materiaDB.carrera });
+     /* const materiaDB = Materia.findOne({ _id: materiaDB.carrera });
       const materiaSaved = Materia.findOneAndUpdate(
         { _id: materiaDB.materia },
         { materias: [...materiaDB.carrera, materiaDB._id] }
-      );
+      );*/
     
       res.send({
         message: "Maestro creado con exito",
-        data: carreraDB,
+        data: maestroDB,
       });
 
 };

@@ -5,7 +5,7 @@ exports.materia_create = async(req, res) => {
     const{body: materia} = req;
 
     const materiaDB = new Materia(materia);
-    const err = await materiaDB.validate();
+    /*const err = await materiaDB.validate();
 
     if(err.errors) {
         console.log(err);
@@ -13,7 +13,7 @@ exports.materia_create = async(req, res) => {
       }
       else {
         //guardar
-      }
+      }*/
     
       await materiaDB.save().catch((err) => console.log("Algo ha fallado", err));
 
@@ -25,7 +25,7 @@ exports.materia_create = async(req, res) => {
     
       res.send({
         message: "Materia agregada con exito",
-       // data: carreraDB,
+        data: carreraDB,
       });
 
 };

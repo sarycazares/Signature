@@ -1,5 +1,6 @@
 import {useState, useRef}from "react";
-
+import {createFacultad} from "../../services/facultadService";
+import {ReCAPTCHA} from "react-google-recaptcha";
 
 
 export default  function useFormFacultad(initialForm, validateForm){
@@ -26,8 +27,8 @@ setErrors(validateForm(form));
 
 const handleSubmit= async (event)=>{
     event.preventDefault();
-    //const res = await createUsuario(form);
-    //console.log(res);
+    const res = await createFacultad(form);
+    console.log(res);
 };
 
 return{

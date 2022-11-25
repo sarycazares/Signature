@@ -7,15 +7,17 @@ nombre:{
     required:true,
 },
 
-descripcion:{
+facultad:[{
+
     type: String,
-    minlenght: 8,
-    maxlenght: 64
-},
+    facultad:{type:mongoose.Types.ObjectId, ref:"facultad"}
+}
+],
 
 carrera:[{
-    type: mongoose.Types.ObjectId,
-    ref: "carrera",
+    type: String,
+    carrera:{type:mongoose.Types.ObjectId, ref:"carrera"}
+
 }
 ],
 
@@ -24,9 +26,6 @@ semestre:{
     required: true,
 },
 
-promedio:{
-    type: Number,
-},
 
 })
 

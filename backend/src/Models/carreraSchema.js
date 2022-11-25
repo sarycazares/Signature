@@ -7,6 +7,7 @@ nombre:{
 
 facultad:{
     type: String,
+    facultad:{type: mongoose.Types.ObjectId, ref: "facultad"} //objeto de rerferencia para almacen de carrera asociada a "que" facultad
 },
 
 })

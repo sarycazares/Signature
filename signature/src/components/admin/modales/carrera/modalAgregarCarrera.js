@@ -11,7 +11,6 @@ import { BrowserRouter } from "react-router-dom";
 const initialForm = {
   facultad: "",
   carrera: "",
-
 };
 
 const validationsForm = (form) => {

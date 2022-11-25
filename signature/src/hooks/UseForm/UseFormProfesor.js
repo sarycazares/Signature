@@ -1,4 +1,5 @@
 import {useState, useRef}from "react";
+import { createMaestro } from "../../services/maestroService";
 
 
 
@@ -26,8 +27,8 @@ setErrors(validateForm(form));
 
 const handleSubmit= async (event)=>{
     event.preventDefault();
-    //const res = await createUsuario(form);
-    //console.log(res);
+    const res = await createMaestro(form);
+    console.log(res);
 };
 
 return{

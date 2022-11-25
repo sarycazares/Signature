@@ -1,11 +1,11 @@
-const Universidad = require("../models/universidadSchema");
+
 const Facultad = require("../models/facultadSchema");
 
 exports.carrera_create = async(req, res) => {
     const{body: carrera} = req;
 
     const carreraDB = new Carrera(carrera);
-    const err = await CarreraDB.validate();
+   /* const err = await CarreraDB.validate();
 
     if(err.errors) {
         console.log(err);
@@ -13,19 +13,19 @@ exports.carrera_create = async(req, res) => {
       }
       else {
         //guardar
-      }
+      }*/
     
       await carreraDB.save().catch((err) => console.log("Algo ha fallado", err));
-
+/*
       const facultadDB = Facultad.findOne({ _id: usuarioDB.facultad });
       const facultadSaved = Facultad.findOneAndUpdate(
         { _id: FacultadDB.facultad },
         { facu: [...facultadDB.facultad, facultadDB._id] }
-      );
+      );*/
     
       res.send({
         message: "Se ha agregado la carrera exitosamente",
-        data: facultadDB,
+        data: carreraDB,
       });
 
 };

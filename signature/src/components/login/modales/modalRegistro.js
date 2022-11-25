@@ -6,7 +6,7 @@ import "../../../css/formularios.css";
 import RegEx from "../../../hooks/RegEx.js";
 import useFormUsuario from "../../../hooks/UseForm/UseFormUsuario";
 import ModalsEvents from "../../../hooks/ModalsEvents";
-import UsuarioCreate from "../modales/crear";
+//import UsuarioCreate from "../modales/crear";
 import { BrowserRouter } from "react-router-dom";
 
 const initialForm = {
