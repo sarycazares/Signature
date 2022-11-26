@@ -24,7 +24,7 @@ export default function Redirects() {
     event.preventDefault();
 
     console.log("clic");
-    navigate("/admine");
+    navigate("/admin");
   };
 
   return {

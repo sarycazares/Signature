@@ -5,9 +5,9 @@ const facu_controller = require('../Controllers/facultadController');
 
 router.post("/facultad", facu_controller.facultad_create);
 
-router.put("/facultad/update", facu_controller.facultad_update2);
+router.put("/facultad/update", facu_controller.facultad_update);
 //router.delete("/student/:id", student_controller.student_delete);
-//router.delete("/student", student_controller.student_delete);
+router.delete("/facultad", facu_controller.facultad_delete);
 
 router.get("/facultad", facu_controller.facultad_getAll);
 router.get("/facultad/name", facu_controller.facultad_getByName);

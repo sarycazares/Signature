@@ -10,8 +10,8 @@ import { BrowserRouter } from "react-router-dom";
 
 var cod;
 const initialForm = {
-  _id: "",
-  //facultad_nombre: "",
+  //_id: "",
+  facultad_nombre: "",
 };
 
 let facultadEncontrada = {};
@@ -183,11 +183,11 @@ export default function ModalModificarFacultad(props) {
               <br />
 
               <div className="grupo">
-              <h4>Facultad</h4>
+              <h4>Clave</h4>
              
-              <select class="categorias-select" name="_id" 
-                  onChange={handleChange} id="_id" items={arregloFacultad_id} onFocus={handleFocus_id}
-                  value={form._id}
+              <select class="categorias-select" name="id_facultades" 
+                  onChange={handleChange} id="id_facultades" items={arregloFacultad_id} onFocus={handleFocus_id}
+                  
                   > 
                       {toarreglo(arregloFacultad_id,0)}
                       {toarreglo(arregloFacultad_id,1)}
@@ -204,7 +204,7 @@ export default function ModalModificarFacultad(props) {
                   type="text"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    //value={form.facultad_nombre}
+                    value={form.facultad_nombre}
                     name="facultad_nombre"
                     id="facultad_nombre"
                     

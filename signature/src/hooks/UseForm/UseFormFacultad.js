@@ -1,5 +1,5 @@
 import {useState, useRef}from "react";
-import {createFacultad, getFacultad_byName} from "../../services/facultadService";
+import {createFacultad, deleteFacultad, getFacultad_byName} from "../../services/facultadService";
 import {getFacultad, updateFacultad} from "../../services/facultadService"
 import {ReCAPTCHA} from "react-google-recaptcha";
 
@@ -58,6 +58,12 @@ const handleSubmit_byName= async (event)=>{
     console.log(res);
 };
 
+const handleDelete = async(event) =>{
+    event.preventDefault();
+    const res = await deleteFacultad(form);
+    console.log(res);
+}
+
 const handleFocus= async (event)=>{
     event.preventDefault();
     const res = await getFacultad(form);
@@ -82,7 +88,7 @@ const handleFocus_id= async (event)=>{
 
 return{
 form, errors,loading,response,handleChange,handleBlur, handleSubmit, handleFocus, arregloFacultad, handleSubmit_byName, 
-handleSubmitModif, handleFocus_id, arregloFacultad_id
+handleSubmitModif, handleFocus_id, arregloFacultad_id, handleDelete
 
 };
 }

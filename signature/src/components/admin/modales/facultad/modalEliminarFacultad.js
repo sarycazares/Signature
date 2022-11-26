@@ -8,9 +8,12 @@ import useFormFacultad from "../../../../hooks/UseForm/UseFormFacultad";
 import ModalsEvents from "../../../../hooks/ModalsEvents";
 import { BrowserRouter } from "react-router-dom";
 
+let facultadEncontrada = {};
+let idEncontrado = {};
+let indexEncontrado;
 
 const initialForm = {
-  facultad: "",
+  facultad_nombre: "",
 };
 
 const validationsForm = (form) => {
@@ -30,6 +33,45 @@ const validationsForm = (form) => {
   return errors;
 };
 
+
+const cargarOpcionesCombo = (opciones) => {
+
+  let arregloFacultad = {};
+//arregloFacultad = opciones;
+opciones.map((facultad, index) => {
+  
+  facultadEncontrada = facultad.facultad_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloFacultad[index] = facultadEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloFacultad;
+ 
+ // return opcion;
+};
+
+
+const tontoarreglo = (arregloFacultad, index)=>{
+
+  try{
+
+     return <option value={arregloFacultad[index]}>{arregloFacultad[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
+
+
 export default function ModalEliminarFacultad(props) {
   const { show, handleClose, handleShow } = ModalsEvents();
 
@@ -42,9 +84,12 @@ export default function ModalEliminarFacultad(props) {
     loading,
     response,
     handleChange,
+    handleFocus,
+    arregloFacultad,
     handleBlur,
     handleSubmit,
-  } = useFormFacultad(initialForm, validationsForm);
+    handleDelete,
+  } = useFormFacultad(initialForm, validationsForm, cargarOpcionesCombo);
 
   return (
     <>
@@ -55,18 +100,19 @@ export default function ModalEliminarFacultad(props) {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleDelete}>
             <div className="form" id="form">
               <h1>Eliminar Facultad</h1>
               <br />
               <div className="grupo">
               <h4>Facultad</h4>
-              <select class="categorias-select" name="facultad"
-                  onChange={handleChange} id="menuEtiquetas"> 
-                        <option selected value = "0"> 
-                            ...
-                        </option>
-                                    
+              <select class="categorias-select" name="facultad" 
+                  onChange={handleChange} id="menuEtiquetas"
+                  items={arregloFacultad} onFocus={handleFocus}
+                  vale = {form.facultad_nombre}> 
+                      {tontoarreglo(arregloFacultad,0)}
+                      {tontoarreglo(arregloFacultad,1)}
+                      {tontoarreglo(arregloFacultad,2)}     
                     </select>
                 
               </div>

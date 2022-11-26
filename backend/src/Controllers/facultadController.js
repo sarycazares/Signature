@@ -32,28 +32,27 @@ exports.facultad_create = async(req, res) => {
 
 exports.facultad_update = async(req, res) => {
 const {body:facultad} = req;
-
+console.log("entra otra vez");
 try{
-let facultadDB = await Facultad.find({faultad_nombre: facultad.facultad_nombre});
+let facultadDB = await Facultad.find({facultad: facultad.facultad_nombre});
 if(facultadDB){
+  
   console.log("se encontro");
-    const{facultad_nombre} = facultad;
-    const data = await Facultad.updateOne(
-        {facultad_nombre},
-        {facultad_nombre}
-    );
+    const{facultad_mod} = facultad;
+    const data = await Facultad.updateOne({facultad_mod}, facultad);
     res.send(data);
 }
-res.send({ msg: "Facultad no encontrada" });
+
 }catch(err){
 console.log(err);
 };
 };
 
-exports.facultad_update2 = async(req, res)=>{
+/*exports.facultad_update2 = async(req, res)=>{
   const { id } = req.params; // Los params son los que se envían en el URL.
   const { body } = req; // Traigo mi objeto. Al { variable } se le llama destructuring y me sirve para acceder a las partes de mi objeto
 console.log("entra");
+
 
   try{
     console.log("entra otra vez");
@@ -64,7 +63,7 @@ console.log("entra");
         // Actualizar el contenido de mi fila.
         const data = await User.findOneAndUpdate(  
         // El id en mi base de datos se guarda con un _
-            {facultad_nombre: id}, // El primer parámetro es un objeto ya que está entre { }, aquí se guardan los criterios de búsqueda. 
+            {facultad_nombre: id}, //El primer parámetro es un objeto ya que está entre { }, aquí se guardan los criterios de búsqueda. 
             body, // El segundo parámetro es un objeto con los campos que se van a actualizar. 
             {returnOriginal: false}) // Query Options. Este sirve para que me muestre la data nueva y no la anterior.
         
@@ -79,16 +78,16 @@ console.log("entra");
     res.send(err);
 }
 }
+*/
 
 exports.facultad_delete = async(req, res) => {
     try {
         const {
-          params: { id },
+          params: { nombre },
         } = req;
     
-        console.log(req);
-    
-        await Facultad.deleteOne({ _id: id });
+        console.log("entra en delete");
+        await Facultad.deleteOne({ facultad_nombre: nombre });
     
         res.send({ message: "Facultad eliminada con exito" });
       } catch (err) {

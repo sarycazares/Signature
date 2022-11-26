@@ -57,3 +57,14 @@ export const getFacultad = async () => {
     }
    
   }
+
+  export const deleteFacultad = async(facultad) =>{
+    try{
+      console.log(facultad);
+      const response = await axios.delete("/facultad", facultad);
+   return response;
+      }catch(err){
+        console.error(err);
+        return "Ocurrio un error en la modificacion"
+      }
+  }

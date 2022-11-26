@@ -31,13 +31,14 @@ function App(){
 
     
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          
           <Route exact path="/home" element={session ? <Home/> : <Navigate to="/"/>} />
           <Route exact path="/perfil" element={session ? <Perfil/> : <Navigate to="/"/>} />
           <Route exact path="/perfilcalificacion" element={session ? <PerfilCalificación/> : <Navigate to="/"/>}/>
           <Route exact path="/admin" element={session ? <Admin/> : <Navigate to="/"/>}/>
           <Route exact path="/reportes" element={session ? <Reportes/> : <Navigate to="/"/>}/>
           <Route exact path="/crear/usuario" element={<UsuarioCreate />} /> {/** agregar uno */}
+          <Route exact path="/" element={<Login />} />
           </Routes>
    //enlaces para dirigir a un componente, lo que te va a pintar en pantalla
    //segun lo que se escriba en el buscador y segun la instancia que se ingrese sera la pantalla que aparecera

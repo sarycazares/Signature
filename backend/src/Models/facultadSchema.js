@@ -1,9 +1,7 @@
 const mongoose = require("mongoose"); //se crea una instancia para uso de mongoose
 
 const facultadSchema = new mongoose.Schema({
-_id:{
-    type:String,
-},
+
 facultad_nombre:{
     type: String,
     minlenght: 2,
