@@ -24,17 +24,10 @@ const validationsForm = (form) => {
   let regExUsuario = RegEx.regUsuario;
   let regExContraseña = RegEx.regContraseña;
 
-    if ((form.usuario.trim()).match(regExUsuario)) {
-      //console.log("listo");
-    } else {
-      errors.usuario = "Escribe un usuario aceptado";
-    }
-
-    if ((form.contraseña.trim()).match(regExContraseña)) {
-      //console.log("listo");
-    } else {
-      errors.contraseña = "Escribe una contraseña aceptada";
-    }
+  if(form == true){
+    errors.Mensaje = "Hubo un error al cargar los datos";
+  }
+    
       return errors;
 };
 
@@ -79,6 +72,8 @@ export default function ModalIniciarSesion() {
         <div class="form" id="form">
                 <h1>Iniciar Sesión</h1>
                 <br/>
+
+                {errors.Mensaje && <p className="errorsForm"> {errors.Mensaje}</p>}
                 
                 <div class="grupo">
                     <input onChange={handleChange}

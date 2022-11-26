@@ -6,7 +6,12 @@ import ModalAgregarCalificacion from './modales/modalAgregarCalificacion'
 import Perfil from '../perfil/perfil'
 import { Link } from "react-router-dom";
 
+let accessUsuario;
+
 const NavBar = () => {
+
+  accessUsuario = sessionStorage.getItem ("usuario");
+
   return (
     
     <>
@@ -19,7 +24,7 @@ const NavBar = () => {
         <Link to="/perfil" className="">
             <img className="imagen-perfilusuario" src={require('../../recursos/images/icons/user-solid-60.png')}  style={{backgroundColor: '#49408C'}}width="60" height="60"/>
             <h1 className="bienvenida_usuario"> Bienvenido</h1>
-            <h1 className="nombre_usuario" id="nombre_usuario">AryMistery</h1> 
+            <h1 className="nombre_usuario" id="nombre_usuario">{accessUsuario}</h1> 
         </Link></div>
         
         <ModalAgregarCalificacion/>
