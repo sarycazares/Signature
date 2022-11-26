@@ -1,7 +1,7 @@
 const mongoose = require("mongoose"); //se crea una instancia para uso de mongoose
-const carreraSchema = mongoose.Schema({
+const carreraSchema = new mongoose.Schema({
 
-nombre:{
+carrera_nombre:{
     type: String,
 },
 

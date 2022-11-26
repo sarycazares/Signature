@@ -5,13 +5,15 @@ import Modal from "react-bootstrap/Modal";
 import "../../../../css/formularios.css";
 import RegEx from "../../../../hooks/RegEx";
 import useFormCarrera from "../../../../hooks/UseForm/UseFormCarrera"
+//import { facultad_getAll } from "../../../../../../backend/src/Controllers/facultadController";
 import ModalsEvents from "../../../../hooks/ModalsEvents";
 import { BrowserRouter } from "react-router-dom";
 
 const initialForm = {
   facultad: "",
-  carrera: "",
+  carrera_nombre: "",
 };
+
 
 const validationsForm = (form) => {
   let errors = {};
@@ -37,6 +39,45 @@ const validationsForm = (form) => {
 };
 
 
+let facultadEncontrada = {};
+let indexEncontrado;
+
+const cargarOpcionesCombo = (opciones) => {
+
+  let arregloFacultad = {};
+//arregloFacultad = opciones;
+opciones.map((facultad, index) => {
+  
+  facultadEncontrada = facultad.facultad_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloFacultad[index] = facultadEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloFacultad;
+ 
+ // return opcion;
+};
+
+const tontoarreglo = (arregloFacultad, index)=>{
+
+  try{
+
+     return <option value={arregloFacultad[index]}>{arregloFacultad[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
+
 
 export default function ModalAgregarCarrera(props) {
 
@@ -54,12 +95,14 @@ export default function ModalAgregarCarrera(props) {
     errors,
     loading,
     response,
+    arregloFacultad,
+    handleFocus,
     handleChange,
     handleBlur,
     handleSubmit,
 
   
-  } = useFormCarrera(initialForm, validationsForm);
+  } = useFormCarrera(initialForm, validationsForm,cargarOpcionesCombo);
 
   
 
@@ -75,19 +118,20 @@ export default function ModalAgregarCarrera(props) {
         </Modal.Header>
         <Modal.Body>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
             <div className="form" id="form">
               <h1>Agregar Carrera</h1>
               <br />
 
-              <div className="grupo">
+              <div className="grupo" >
               <h4>Facultad</h4>
               <select class="categorias-select" name="facultad"
-                  onChange={handleChange} id="menuEtiquetas"> 
-                        <option selected value = "0"> 
-                            ...
-                        </option>
-                                    
+                  onChange={handleChange} id="menuEtiquetas" items={arregloFacultad} onFocus={handleFocus}
+                  value={form.facultad}> 
+                      {tontoarreglo(arregloFacultad,0)}
+                      {tontoarreglo(arregloFacultad,1)}
+                      {tontoarreglo(arregloFacultad,2)}
+                        
                     </select>
                     
               </div>
@@ -99,9 +143,9 @@ export default function ModalAgregarCarrera(props) {
                   type="text"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={form.carrera}
-                    name="carrera"
-                    id="carrera"
+                    value={form.carrera_nombre}
+                    name="carrera_nombre"
+                    id="carrera_nombre"
                     title="El nombre para la carrera debe contener unicamente letras y, de ser el caso, numeros"
                     required
                   />
@@ -109,7 +153,7 @@ export default function ModalAgregarCarrera(props) {
                   <label className="datos-form" for="">
                     Carrera
                   </label>
-                  {errors.carrera && <p className="errorsForm"> {errors.carrera}</p>}
+                  {errors.carrera_nombre && <p className="errorsForm"> {errors.carrera_nombre}</p>}
 
                 </div>
                 <br/> 

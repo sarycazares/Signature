@@ -3,7 +3,7 @@ import ModalAgregarFacultad from '../../admin/modales/facultad/modalAgregarFacul
 import { createFacultad } from "../../../services/facultadService";
 
 const facultadInit = {
-    nombre: "",
+    facultad: "",
   };
 
 export default function facultadCreate() {

@@ -5,11 +5,12 @@ const facu_controller = require('../Controllers/facultadController');
 
 router.post("/facultad", facu_controller.facultad_create);
 
-//router.put("/student/update", student_controller.student_update);
+router.put("/facultad/update", facu_controller.facultad_update2);
 //router.delete("/student/:id", student_controller.student_delete);
 //router.delete("/student", student_controller.student_delete);
 
-//router.get("/student", student_controller.student_getAll);
+router.get("/facultad", facu_controller.facultad_getAll);
+router.get("/facultad/name", facu_controller.facultad_getByName);
 //router.get("/student/:id", student_controller.student_getById);
 
 

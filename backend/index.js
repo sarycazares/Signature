@@ -37,6 +37,7 @@ app.get('/', (req, res) => {
 }); 
 
 app.use('/api',usuario_router);
+app.use('/api',carrera_router);
 app.use('/api',materia_router);
 app.use('/api',facultad_router);
 app.use('/api',resena_router);

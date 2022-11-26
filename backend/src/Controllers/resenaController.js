@@ -5,7 +5,7 @@ exports.resena_create = async(req, res) => {
     const{body: resena} = req;
 
     const resenaDB = new Resena(resena);
-    const err = await resenaDB.validate();
+   /* const err = await resenaDB.validate();
 
     if(err.errors) {
         console.log(err);
@@ -17,7 +17,7 @@ exports.resena_create = async(req, res) => {
         { _id: resenaDB.resena },
         { resenas: [...resenaDB.resena, resenaDB._id] }
       );
-      }
+      }*/
     
       await resenaDB.save().catch((err) => console.log("Algo ha fallado", err));
 

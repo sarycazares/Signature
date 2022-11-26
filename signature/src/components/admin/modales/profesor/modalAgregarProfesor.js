@@ -11,9 +11,47 @@ import {ReCAPTCHA} from "react-google-recaptcha";
 
 const initialForm = {
   facultad: "",
-  profesor: "",
+  nombre: "",
 
 };
+
+let facultadEncontrada = {};
+let indexEncontrado;
+
+const cargarOpcionesCombo = (opciones) => {
+
+  let arregloFacultad = {};
+//arregloFacultad = opciones;
+opciones.map((facultad, index) => {
+  
+  facultadEncontrada = facultad.facultad_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloFacultad[index] = facultadEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloFacultad;
+ 
+ // return opcion;
+};
+
+const tontoarreglo = (arregloFacultad, index)=>{
+
+  try{
+
+     return <option value={arregloFacultad[index]}>{arregloFacultad[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
 
 const validationsForm = (form) => {
   let errors = {};
@@ -58,11 +96,13 @@ export default function ModalAgregarProfesor(props) {
     loading,
     response,
     handleChange,
+    arregloFacultad,
+    handleFocus,
     handleBlur,
     handleSubmit,
 
   
-  } = useFormProfesor(initialForm, validationsForm);
+  } = useFormProfesor(initialForm, validationsForm, cargarOpcionesCombo);
 
   
 
@@ -87,10 +127,10 @@ export default function ModalAgregarProfesor(props) {
               <div className="grupo">
               <h4>Facultad</h4>
               <select class="categorias-select" name="facultad"
-                  onChange={handleChange} id="menuEtiquetas"> 
-                        <option selected value = "0"> 
-                            ...
-                        </option>
+                  onChange={handleChange} id="menuEtiquetas"  value={form.facultad}  items={arregloFacultad} onFocus={handleFocus}> 
+                      {tontoarreglo(arregloFacultad,0)}
+                      {tontoarreglo(arregloFacultad,1)}
+                      {tontoarreglo(arregloFacultad,2)}
                                     
                     </select>
                     <button type="button" className="SeleccionarButton">Seleccionar</button>
@@ -103,9 +143,9 @@ export default function ModalAgregarProfesor(props) {
                   type="text"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={form.profesor}
-                    name="profesor"
-                    id="profesor"
+                    value={form.nombre}
+                    name="nombre"
+                    id="nombre"
                     title="Escriba un nombre correcto"
                     required
                   />
@@ -113,7 +153,7 @@ export default function ModalAgregarProfesor(props) {
                   <label className="datos-form" for="">
                     Profesor
                   </label>
-                  {errors.profesor && <p className="errorsForm"> {errors.profesor}</p>}
+                  {errors.nombre && <p className="errorsForm"> {errors.nombre}</p>}
 
                 </div>
                 <br/> 

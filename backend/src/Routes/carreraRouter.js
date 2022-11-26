@@ -9,7 +9,7 @@ router.post("/carrera", carrera_controller.carrera_create);
 //router.delete("/student/:id", student_controller.student_delete);
 //router.delete("/student", student_controller.student_delete);
 
-//router.get("/student", student_controller.student_getAll);
+router.get("/carrera", carrera_controller.carrera_getAll);
 //router.get("/student/:id", student_controller.student_getById);
 
 

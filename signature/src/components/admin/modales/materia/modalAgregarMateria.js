@@ -12,7 +12,7 @@ const initialForm = {
   facultad: "",
   carrera: "",
   semestre: "",
-  materia: "",
+  nombre: "",
 };
 
 const validationsForm = (form) => {
@@ -44,6 +44,81 @@ const validationsForm = (form) => {
   return errors;
 };
 
+
+let facultadEncontrada = {};
+let carreraEncontrada = {};
+let indexEncontrado;
+
+const cargarOpcionesCombo = (opciones) => {
+
+  let arregloFacultad = {};
+//arregloFacultad = opciones;
+opciones.map((facultad, index) => {
+  
+  facultadEncontrada = facultad.facultad_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloFacultad[index] = facultadEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloFacultad;
+ 
+ // return opcion;
+};
+
+const tontoarreglo = (arregloFacultad, index)=>{
+
+  try{
+
+     return <option value={arregloFacultad[index]}>{arregloFacultad[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
+const cargarOpcionesCombo_carrera = (opciones) => {
+
+  let arregloCarrera = {};
+//arregloFacultad = opciones;
+opciones.map((carrera, index) => {
+  
+  carreraEncontrada = carrera.carrera_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloCarrera[index] = carreraEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloCarrera;
+ 
+ // return opcion;
+};
+
+const tontoarreglo_carrera = (arregloCarrera, index)=>{
+
+  try{
+
+     return <option value={arregloCarrera[index]}>{arregloCarrera[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
 export default function ModalAgregarMateria(props) {
   const { show, handleClose, handleShow } = ModalsEvents();
 
@@ -55,10 +130,14 @@ export default function ModalAgregarMateria(props) {
     errors,
     loading,
     response,
+    arregloFacultad,
+    arregloCarrera,
+    handleFocus_carrera,
+    handleFocus,
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useFormMateria(initialForm, validationsForm);
+  } = useFormMateria(initialForm, validationsForm,cargarOpcionesCombo, cargarOpcionesCombo_carrera);
 
   return (
     <>
@@ -80,11 +159,13 @@ export default function ModalAgregarMateria(props) {
                   class="categorias-select"
                   name="facultad"
                   onChange={handleChange}
+                  value={form.facultad}
                   id="menuEtiquetas"
+                  items={arregloFacultad} onFocus={handleFocus}
                 >
-                  <option selected value="0">
-                    ...
-                  </option>
+                      {tontoarreglo(arregloFacultad,0)}
+                      {tontoarreglo(arregloFacultad,1)}
+                      {tontoarreglo(arregloFacultad,2)}
                 </select>
               </div>
               <br />
@@ -95,11 +176,13 @@ export default function ModalAgregarMateria(props) {
                   class="categorias-select"
                   name="carrera"
                   onChange={handleChange}
+                  value={form.carrera}
                   id="menuEtiquetas"
+                  items={arregloCarrera} onFocus={handleFocus_carrera}
                 >
-                  <option selected value="0">
-                    ...
-                  </option>
+                      {tontoarreglo_carrera(arregloCarrera,0)}
+                      {tontoarreglo_carrera(arregloCarrera,1)}
+                      {tontoarreglo_carrera(arregloCarrera,2)}
                 </select>
               </div>
               <br />
@@ -132,9 +215,9 @@ export default function ModalAgregarMateria(props) {
                   type="text"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={form.materia}
-                  name="materia"
-                  id="materia"
+                  value={form.nombre}
+                  name="nombre"
+                  id="nombre"
                   title="Escriba un nombre correcto"
                   required
                 />
@@ -142,8 +225,8 @@ export default function ModalAgregarMateria(props) {
                 <label className="datos-form" for="">
                   Materia
                 </label>
-                {errors.materia && (
-                  <p className="errorsForm"> {errors.materia}</p>
+                {errors.nombre && (
+                  <p className="errorsForm"> {errors.nombre}</p>
                 )}
               </div>
               <br />

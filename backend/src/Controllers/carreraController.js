@@ -1,5 +1,5 @@
 
-const Facultad = require("../models/facultadSchema");
+const Carrera = require("../models/carreraSchema");
 
 exports.carrera_create = async(req, res) => {
     const{body: carrera} = req;
@@ -79,7 +79,7 @@ exports.carrera_getById = async(req, res) =>{
 };
 
 exports.carrera_getAll = async(req, res) =>{
-    const data = await carrera.find().populate("facultad");
+    const data = await Carrera.find();
 
     res.send(data);
 };

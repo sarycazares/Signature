@@ -36,6 +36,156 @@ const validationsForm = (form) => {
   return errors;
 };
 
+let facultadEncontrada = {};
+let carreraEncontrada = {};
+let materiaEncontrada = {};
+let maestroEncontrado = {};
+let indexEncontrado;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+const cargarOpcionesCombo = (opciones) => {
+
+  let arregloFacultad = {};
+//arregloFacultad = opciones;
+opciones.map((facultad, index) => {
+  
+  facultadEncontrada = facultad.facultad_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloFacultad[index] = facultadEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloFacultad;
+ 
+ // return opcion;
+};
+
+const tontoarreglo = (arregloFacultad, index)=>{
+
+  try{
+
+     return <option value={arregloFacultad[index]}>{arregloFacultad[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+const cargarOpcionesCombo_carrera = (opciones) => {
+
+  let arregloCarrera = {};
+//arregloFacultad = opciones;
+opciones.map((carrera, index) => {
+  
+  carreraEncontrada = carrera.carrera_nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloCarrera[index] = carreraEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloCarrera;
+ 
+ // return opcion;
+};
+
+const tontoarreglo_carrera = (arregloCarrera, index)=>{
+
+  try{
+
+     return <option value={arregloCarrera[index]}>{arregloCarrera[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+const cargarOpcionesCombo_materia = (opciones) => {
+
+  let arregloMateria = {};
+//arregloFacultad = opciones;
+opciones.map((materia, index) => {
+  
+  materiaEncontrada = materia.nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloMateria[index] = materiaEncontrada;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloMateria;
+ 
+ // return opcion;
+};
+
+const tontoarreglo_materia = (arregloMateria, index)=>{
+
+  try{
+
+     return <option value={arregloMateria[index]}>{arregloMateria[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const cargarOpcionesCombo_maestro = (opciones) => {
+
+  let arregloMaestros = {};
+//arregloFacultad = opciones;
+opciones.map((maestro, index) => {
+  
+  maestroEncontrado = maestro.nombre;
+  //console.log(facultadEncontrada.facultad_nombre);
+   indexEncontrado = index;
+
+ arregloMaestros[index] = maestroEncontrado;
+ //arregloFacultad.push = <option key={indexEncontrado} value={indexEncontrado}>{facultadEncontrada}</option>;
+
+
+
+})
+
+return arregloMaestros;
+ 
+ // return opcion;
+};
+
+const tontoarreglo_maestro = (arregloMaestros, index)=>{
+
+  try{
+
+     return <option value={arregloMaestros[index]}>{arregloMaestros[index]}</option>;
+
+  
+} catch{
+  return <option value="0">...</option>;
+}
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 export default function ModalRegistro() {
   
   const {
@@ -49,12 +199,21 @@ export default function ModalRegistro() {
     errors,
     loading,
     response,
+    arregloFacultad,
+    arregloCarrera,
+    arregloMateria,
+    arregloMaestros,
+    handleFocus,
+    handleFocus_carrera,
+    handleFocus_materia,
+    handleFocus_maestro,
     handleChange,
     handleBlur,
     handleSubmit,
 
   
-  } = useFormCalificaciones(initialForm, validationsForm);
+  } = useFormCalificaciones(initialForm, validationsForm,cargarOpcionesCombo, cargarOpcionesCombo_carrera,
+    cargarOpcionesCombo_materia, cargarOpcionesCombo_maestro);
 
   return (
     <>
@@ -77,11 +236,11 @@ export default function ModalRegistro() {
                   class="categorias-select"
                   name="facultad"
                   onChange={handleChange}
-                  id="menuEtiquetas"
+                  id="menuEtiquetas" items={arregloFacultad} onFocus={handleFocus}
                 >
-                  <option selected value="0">
-                    ...
-                  </option>
+                      {tontoarreglo(arregloFacultad,0)}
+                      {tontoarreglo(arregloFacultad,1)}
+                      {tontoarreglo(arregloFacultad,2)}
                 </select>
               </div>
               <br />
@@ -92,11 +251,11 @@ export default function ModalRegistro() {
                   class="categorias-select"
                   name="carrera"
                   onChange={handleChange}
-                  id="menuEtiquetas"
+                  id="menuEtiquetas" items={arregloCarrera} onFocus={handleFocus_carrera}
                 >
-                  <option selected value="0">
-                    ...
-                  </option>
+                      {tontoarreglo_carrera(arregloCarrera,0)}
+                      {tontoarreglo_carrera(arregloCarrera,1)}
+                      {tontoarreglo_carrera(arregloCarrera,2)}
                 </select>
               </div>
               <br />
@@ -129,11 +288,11 @@ export default function ModalRegistro() {
                 <select
                   class="categorias-select"
                   name="Etiqueta"
-                  id="menuEtiquetas"
+                  id="menuEtiquetas" items={arregloMateria} onFocus={handleFocus_materia}
                 >
-                  <option selected value="0">
-                    ...
-                  </option>
+                      {tontoarreglo_materia(arregloMateria,0)}
+                      {tontoarreglo_materia(arregloMateria,1)}
+                      {tontoarreglo_materia(arregloMateria,2)}
                 </select>
 
               </div>
@@ -144,10 +303,10 @@ export default function ModalRegistro() {
               <div className="grupo">
               <h4>Profesor</h4>
               <select class="categorias-select" name="profesor"
-                  onChange={handleChange} id="menuEtiquetas"> 
-                        <option selected value = "0"> 
-                            ...
-                        </option>
+                  onChange={handleChange} id="menuEtiquetas" items={arregloMaestros} onFocus={handleFocus_maestro}> 
+                      {tontoarreglo_maestro(arregloMaestros,0)}
+                      {tontoarreglo_maestro(arregloMaestros,1)}
+                      {tontoarreglo_maestro(arregloMaestros,2)}
                                     
                     </select>
               </div>

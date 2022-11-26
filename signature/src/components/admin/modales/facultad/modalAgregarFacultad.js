@@ -9,8 +9,10 @@ import ModalsEvents from "../../../../hooks/ModalsEvents";
 import { BrowserRouter } from "react-router-dom";
 
 const initialForm = {
-  facultad: "",
+  facultad_nombre: "",
 };
+
+
 
 const validationsForm = (form) => {
   let errors = {};
@@ -18,10 +20,10 @@ const validationsForm = (form) => {
 
   //if de los RegEx
 
-  if (form.facultad.trim().match(regExFacultad)) {
+  if (form.facultad_nombre.trim().match(regExFacultad)) {
     //console.log("listo");
   } else {
-    errors.facultad = "Escribe correctamente tu facultad";
+    errors.facultad_nombre = "Escribe correctamente tu facultad";
   }
 
   return errors;
@@ -38,6 +40,8 @@ export default function ModalAgregarFacultad(props) {
     errors,
     loading,
     response,
+    arregloFacultad,
+    handleFocus,
     handleChange,
     handleBlur,
     handleSubmit,
@@ -61,9 +65,9 @@ export default function ModalAgregarFacultad(props) {
                   type="text"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={form.facultad}
-                  name="facultad"
-                  id="facultad"
+                  value={form.facultad_nombre}
+                  name="facultad_nombre"
+                  id="facultad_nombre"
                   title="El nombre para la facultad debe contener unicamente letras"
                   required
                 />
@@ -71,8 +75,8 @@ export default function ModalAgregarFacultad(props) {
                 <label className="datos-form" for="">
                   Facultad
                 </label>
-                {errors.facultad && (
-                  <p className="errorsForm"> {errors.facultad}</p>
+                {errors.facultad_nombre && (
+                  <p className="errorsForm"> {errors.facultad_nombre}</p>
                 )}
               </div>
               <br />

@@ -1,11 +1,12 @@
 const mongoose = require("mongoose"); //se crea una instancia para uso de mongoose
-const facultadSchema = mongoose.Schema({
 
-nombre:{
+const facultadSchema = new mongoose.Schema({
+_id:{
+    type:String,
+},
+facultad_nombre:{
     type: String,
     minlenght: 2,
-    maxlenght: 255,
-    required: true,
 },
 
 //se utilizara unicamente el nombre pues utilizaremos facultades de la UANL unicamente

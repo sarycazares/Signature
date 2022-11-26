@@ -25,7 +25,7 @@ exports.materia_create = async(req, res) => {
     
       res.send({
         message: "Materia agregada con exito",
-        data: carreraDB,
+        data: materiaDB,
       });
 
 };
