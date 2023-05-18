@@ -22,7 +22,7 @@ const Perfil = () => {
                         <h3 id="MiPerfilTitulo">Mi Perfil</h3>                                 
                         <h4 id="NombreUsuario">AryMistery</h4> 
                         <h3 id="Nombre"> Leslie Sarahy Cazares Mendoza</h3>                                      
-                        <h3 id="Correo"> sarycazares@live.com.mx</h3>
+                        <h3 id="Correo"> sarycazares@email.com</h3>
                         <h3 id="Matricula"> 1673469</h3>    
                         <h3 id="Facultad"> FCFM </h3> 
                         <h3 id="Carrera"> LMAD</h3>    
